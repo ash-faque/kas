@@ -1,0 +1,40 @@
+@import url('href=https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Montserrat&display=swap');
+
+
+*{
+    font-family: 'Kalam', cursive;
+}
+/* navigation section */
+#head-sec div{
+    height: 100px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+#head-sec div h1{
+    width: 100%;
+    display: block; 
+    margin: 10px 0 0 0; 
+    font-size: 35px; 
+    letter-spacing: 0.25rem;
+    line-height: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+#head-sec div h2{
+    width: 100%; 
+    display: block; 
+    margin: 0 0 10px 0; 
+    font-size: 20px; 
+    letter-spacing: 0.5rem;
+    line-height: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+#head-sec img{
+    position: absolute;
+    right: 0;
+    max-width:70px;
+    max-height: 70px;
+    margin: 15px;
+}
+.modal{
+    min-height: 80%;
+}

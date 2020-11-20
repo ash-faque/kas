@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>KA Stores</title>
+</head>
+
+<body class="teal lighten-4">
+
+    <!--- NAVIGATION --->
+    <div class="row teal darken-2" id="head-sec">
+      <div class="col s9 m10 l11  valign-wrapper">
+          <div>
+              <h1 class="white-text flow-text">K A Stores</h1>
+              <h2 class="white-text flow-text">Market Rates</h2>
+          </div>
+      </div>
+      <img class="circle" src="img/logo.png" alt="logo">
+    </div>
+
+    <!--- MAIN SECTION -->
+    <main style="min-height: 100vh;">
+      <div class="container">
+          <!-- FAB -->
+          <div class="fixed-action-btn">
+              <a class="btn-floating btn-large teal">
+                <i class="large material-icons">add</i>
+              </a>
+              <ul>
+                <li><a data-target="login" class="btn-floating btn-large modal-trigger yellow darken-2"><i class="large material-icons">login</i></a></li>
+                <li><a class="merch btn-floating btn-large green darken-2" style="display: none;"><i class="large material-icons">upload</i></a></li>
+                <li><a data-target="about" class="btn-floating btn-large modal-trigger blue darken-2"><i class="large material-icons">help</i></a></li>
+              </ul>
+          </div>
+          <!--- MODALS -->
+          <!-- LOGIN MODAL -->
+          <div id="login" class="modal lime accent-1 valign-wrapper center-align">
+            <div class="modal-content" style="width: 100%; margin: 1em 0;">
+              <h4 style="text-transform: uppercase; font-family: 'Montserrat', sans-serif; letter-spacing: 0.25rem; margin: 0;">Merchant Login</h4><br/>
+              <form id="login-form">
+                <div class="input-field">
+                  <input type="email" id="login-email" required />
+                  <label for="login-email">Merch mail</label>
+                </div>
+                <div class="input-field">
+                  <input type="password" id="login-password" required />
+                  <label for="login-password">Merch pass</label>
+                </div>
+                <button class="btn z-depth-0">Login</button>
+                <a class="modal-close btn btn-small z-depth-0 red lighten-2" style="position: absolute; bottom: 0rem; right: 0rem;"><i class="small material-icons">close</i></a>
+                <p class="error pink-text center-align"></p>
+              </form>
+            </div>
+          </div>
+          <!-- ABOUT MODAL -->
+          <div id="about" class="modal blue lighten-1">
+            <div class="modal-content">
+              <img src="img/about.svg" style="width: 100%;" alt="merchant image">
+              <h4 class="center-align white-text" style="text-transform: uppercase; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5rem;">KA Store</h4>
+              <p class="center-align black-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo esse nisi minus odit dignissimos voluptatum, dicta beatae ad numquam illo nostrum debitis eveniet enim adipisci tempora, voluptate laudantium commodi earum! Rerum voluptas quas itaque quia quo necessitatibus labore magnam illo.</p>
+            </div>
+            <a class="modal-close btn btn-small z-depth-0 red lighten-2" style="position: absolute; bottom: 0rem; right: 0rem;"><i class="small material-icons">close</i></a>
+          </div>
+          <!--  MARKET RATES ULS -->
+          <div class="valign-wrapper">
+            <ul class="collection" id="rate-list" style="width: 100%;">
+              <li class="collection-item">item<span class="secondary-content">40</span></li>
+              
+            </ul>
+          </div>
+      </div>
+    </main>
+
+    <!--- FOOT SECTION -->
+    <footer class="teal darken-2 page-footer">
+        <div class="container center-align">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus animi dolor iusto provident accusantium asperiores pariatur ipsa consequuntur dolorem eos.</p>
+            <p>Devoleped by <a href="http://ashfaqueblathur.github.io">Ashfaque Blathur.</a></p>
+        </div>
+        <div class="footer-copyright">
+            <span class="center-align" style="width: 100%;">© 2020 All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <!--- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyByn4MyBo7waIVfJ3PZFm1QG2DpzBY0Ubg",
+        authDomain: "ka-store-3f22a.firebaseapp.com",
+        databaseURL: "https://ka-store-3f22a.firebaseio.com",
+        projectId: "ka-store-3f22a",
+        storageBucket: "ka-store-3f22a.appspot.com",
+        messagingSenderId: "664972737373",
+        appId: "1:664972737373:web:3216e4363d322d2acec6b4",
+        measurementId: "G-EHMEBQVN1S"
+      };
+      firebase.initializeApp(config);
+      
+      // make auth and firestore references
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+  
+      // update firestore settings
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

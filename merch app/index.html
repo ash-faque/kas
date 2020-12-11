@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>KA Stores</title>
+</head>
+
+<body>
+
+    <!-- HEADING -->
+    <div id="head">
+        <h1>KAS Data Entry!</h1>
+    </div>
+
+    <div id="loggedOunt">
+        <form id="march-login">
+            <h2>marchant login</h2>
+            <p>login as a marchant for entering market rate data</p>
+            <label for="mail">Marchant Mail</label>
+            <input type="email" name="marchantMail" id="e-mail" required>
+            <label for="password">Password</label>
+            <input type="password" name="marchantPass" id="password" required>
+            <button type="submit">try login</button>
+            <p class="error"></p>
+        </form>
+        <button type="submit">I'm not a marchant. Go back</button>
+    </div>
+
+    <div id="loggedIn" style="display: ;"> 
+        <!--  MARKET RATES ULS -->
+        <div id="ratesTable">
+            <h3>grains</h3>
+            <ul class="collection" id="grains"></ul>
+            <h3>vegetables</h3>
+            <ul class="collection" id="vegetables"></ul>
+            <h3>fruits</h3>
+            <ul class="collection" id="fruits"></ul>
+            <h3>meat & dairy</h3>
+            <ul class="collection" id="dairy"></ul>
+            <h3>others</h3>
+            <ul class="collection" id="others"></ul>
+        </div>
+
+        <!-- ADD NEW -->
+        <div id="addNew">
+            <form>
+                <input type="text" name="item" id="" placeholder="name">
+                <input type="number" name="rate" id="" value="0">
+                <div class="catogary">
+                    <input type="radio" id="grain" name="catogary" value="grain">
+                    <label for="grain">grain</label>
+                    <input type="radio" id="vegetable" name="catogary" value="vegetable">
+                    <label for="vegetable">vegetable</label>
+                    <input type="radio" id="fruit" name="catogary" value="fruit">
+                    <label for="fruit">fruit</label>
+                    <input type="radio" id="dairy" name="catogary" value="dairy">
+                    <label for="dairy">dairy</label>
+                    <input type="radio" id="other" name="catogary" value="other">
+                    <label for="other">other</label>
+                </div>
+                <button type="submit">add</button>
+            </form>
+        </div>
+
+        <!-- LOGOUT -->
+        <button id="logout">logout</button>
+        <!-- GET RATES -->
+<!--         <button onclick="inputRates(querySnapshot.docs);">get rates</button>
+ -->
+    </div>
+
+    <!--- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyByn4MyBo7waIVfJ3PZFm1QG2DpzBY0Ubg",
+        authDomain: "ka-store-3f22a.firebaseapp.com",
+        databaseURL: "https://ka-store-3f22a.firebaseio.com",
+        projectId: "ka-store-3f22a",
+        storageBucket: "ka-store-3f22a.appspot.com",
+        messagingSenderId: "664972737373",
+        appId: "1:664972737373:web:3216e4363d322d2acec6b4",
+        measurementId: "G-EHMEBQVN1S"
+      };
+      firebase.initializeApp(config);
+      
+      // make auth and firestore references
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+  
+      // update firestore settings
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+
+</body>
+</html>

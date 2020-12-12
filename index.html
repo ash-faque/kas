@@ -3,46 +3,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/resource/style.css">
   <title>KA Stores</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/resource/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/resource/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/resource/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/resource/favicon/site.webmanifest">
 </head>
-
 <body>
     <!-- NAV BAR -->
     <div id="head">
         <h1>KA Store!</h1>
         <h3>Market Rates</h3>
     </div>
-
     <!--  MARKET RATES ULS -->
     <div id="ratesTable">
         <div class="container">
-            <h3>grains</h3>
+            <h3>🌾 grains 🌰</h3>
             <ul class="collection" id="grains"></ul>
         </div>
         <div class="container">
-            <h3>vegetables</h3>
+            <h3>🍅 vegetables 🍆</h3>
             <ul class="collection" id="vegetables"></ul>
         </div>
         <div class="container">
-            <h3>fruits</h3>
+            <h3>🍌 fruits 🍎</h3>
             <ul class="collection" id="fruits"></ul>
         </div>
         <div class="container">
-            <h3>meat & dairy</h3>
+            <h3>🐄 meat & dairy 🍖</h3>
             <ul class="collection" id="dairy"></ul>
         </div>
         <div class="container">
-            <h3>others</h3>
+            <h3>💥 others 🍨</h3>
             <ul class="collection" id="others"></ul>
         </div>
     </div>
+    <div id="ad">
 
+    </div>
+    <!-- GET RATE -->
+    <div>
+        <button onclick="getRates(commodity);" id="getrate">⚡</button>
+    </div>
     <!-- FOOT BAR -->
     <div id="foot">
         <p>Contents in this web page are not at all licenced.</p>
-        <p>Created By<a href="http://ashfaqueblathur.github.io"> Ashfaque Blathur</a></p>
-        <br>
+        <p>Created By <a href="http://ashfaqueblathur.github.io"> Ashfaque Blathur </a></p>
+        <a href="/merch/"> edit rates </a>
     </div>
 
     <!--- SCRIPTS -->
@@ -68,6 +76,6 @@
       // update firestore settings
       db.settings({ timestampsInSnapshots: true });
     </script>
-    <script src="scripts/index.js"></script>
+    <script src="/resource/index.js"></script>
 </body>
 </html>

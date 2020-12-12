@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    overflow-x: hidden;
+    background-color: teal;
+    color: white;
+    text-transform: uppercase;
+}
+#march-login{
+    width: 100%;
+    height: 60vh;
+}
+#march-login h2, #march-login p{
+    margin: 30px 0;
+}
+.discription{
+    font-size: 14px;
+    color: yellow;
+}
+.error{
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+    color: red;
+}
+#march-login input, #march-login button{
+    width: 90%;
+    min-height: 30px;
+    border-radius: 5px;
+}
+#march-login label{
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    color: yellow;
+}
+#march-login button{
+    margin: 10px 0;
+    text-transform: uppercase;
+    padding: 3px;
+    background-color: rgb(0, 180, 50);
+    color: yellow;
+    border: 0;
+}
+
+div{
+    width: 100%;
+    text-align: center;
+}
+div ul{
+    width: 100%;
+    min-height: 100px;
+}
+div ul li{
+    list-style: none;
+}
+
+
+#head{
+    background-color: rgb(117, 0, 128);
+    height: 100px;
+}
+#head h1{
+    padding: 30px 0;
+}
+#ratesTable{
+    background-color: rgba(30, 60, 0, 0.6);
+}
+#ratesTable h3{
+    font-size: 16px;
+    background-color: rgb(50, 70, 0);
+}
+.rate-show{
+    width: 100%;
+    min-height: 70px;
+    background-color: teal;
+}
+.rate-show .detail{
+    width: calc(100% - 70px);
+    min-height: 70px;
+    margin: 0 35px;
+    text-align: center;
+}
+.rate-show .detail label{
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+.rate-show .detail label span{
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+.update, .delete{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 3px;
+    margin: 20px 0;
+}
+.delete{
+    background-color: rgba(255, 30, 30, 0.7);
+    float: left;
+}
+.update{
+    background-color: rgba(30, 238, 30, 0.8);
+    float: right;
+    margin-top: -50px;
+}
+#addNew{
+    background-color: teal;
+    width: 100%;
+}
+#add-form{
+    width: 100%;
+    padding: 2% 0;
+}
+#add-form #name{
+    width: 75%;
+    height: 30px;
+    margin: 10px;
+}
+#add-form #rate{
+    width: 75%;
+    height: 30px;
+    margin: 10px;
+}
+.catogary{
+    background-color: rgba(0, 128, 49, 0.5);
+}
+.avl{
+    background-color: rgba(0, 49, 128, 0.5);
+}
+.catogary div, .avl div{
+    width: 100%;
+    margin: 0 2%;
+    padding: 2% 0;
+}
+#logout, #add-form button{
+    color: rgb(255, 255, 255);
+    background-color: teal;
+    padding: 1px;
+    text-transform: uppercase;
+    text-shadow: rgb(0, 0, 0) -1px 1px;
+}
+#add-form button{
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border: 2px white solid;
+    border-radius: 50%;
+    background-color: rgb(0, 255, 100);
+    color: rgb(0, 0, 0);
+    float: right;
+    margin: 10px 20px 20px 0;
+}
+#logout{
+    border: 1px red solid;
+    width: 100%;
+    margin-top: 10vh;
+}

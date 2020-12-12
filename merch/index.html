@@ -17,7 +17,7 @@
     <div id="loggedOunt">
         <form id="march-login">
             <h2>marchant login</h2>
-            <p>login as a marchant for entering market rate data</p>
+            <p class="discription">login as a marchant for entering market rate data</p>
             <label for="mail">Marchant Mail</label>
             <input type="email" name="marchantMail" id="e-mail" required>
             <label for="password">Password</label>
@@ -25,10 +25,10 @@
             <button type="submit">try login</button>
             <p class="error"></p>
         </form>
-        <button type="submit">I'm not a marchant. Go back</button>
+        <a href="/">go back! i'm not a marchent.</a>
     </div>
 
-    <div id="loggedIn" style="display: ;"> 
+    <div id="loggedIn" style="display: none;"> 
         <!--  MARKET RATES ULS -->
         <div id="ratesTable">
             <h3>grains</h3>
@@ -42,33 +42,49 @@
             <h3>others</h3>
             <ul class="collection" id="others"></ul>
         </div>
-
         <!-- ADD NEW -->
         <div id="addNew">
-            <form>
-                <input type="text" name="item" id="" placeholder="name">
-                <input type="number" name="rate" id="" value="0">
+            <form id="add-form">
+                <input type="text" name="item" id="name" placeholder="name">
+                <input type="number" name="rate" id="rate" value="0">
                 <div class="catogary">
-                    <input type="radio" id="grain" name="catogary" value="grain">
-                    <label for="grain">grain</label>
-                    <input type="radio" id="vegetable" name="catogary" value="vegetable">
-                    <label for="vegetable">vegetable</label>
-                    <input type="radio" id="fruit" name="catogary" value="fruit">
-                    <label for="fruit">fruit</label>
-                    <input type="radio" id="dairy" name="catogary" value="dairy">
-                    <label for="dairy">dairy</label>
-                    <input type="radio" id="other" name="catogary" value="other">
-                    <label for="other">other</label>
+                    <div>
+                        <input type="radio" id="grain" name="catogary" value="grain">
+                        <label for="grain">grain</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="vegetable" name="catogary" value="vegetable">
+                        <label for="vegetable">vegetable</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="fruit" name="catogary" value="fruit">
+                        <label for="fruit">fruit</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="catogary" id="meat" value="dairy"> 
+                        <label for="meat">dairy</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="other" name="catogary" value="other">
+                        <label for="other">other</label>
+                    </div>
                 </div>
-                <button type="submit">add</button>
+                <div class="avl">
+                    <div>
+                        <input type="radio" name="avl" id="available" value="available">
+                        <label for="available">in stock</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="avl" id="not-available" value="not-available">
+                        <label for="not-available">out of stock</label>
+                    </div>
+                </div>
+                <button type="submit">+</button>
             </form>
         </div>
 
         <!-- LOGOUT -->
         <button id="logout">logout</button>
-        <!-- GET RATES -->
-<!--         <button onclick="inputRates(querySnapshot.docs);">get rates</button>
- -->
     </div>
 
     <!--- SCRIPTS -->

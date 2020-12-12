@@ -1,6 +1,6 @@
 // GET REFERENCE TO COMMODITIES AND PASS IT TO SNAPSHOT DATA
 var commodity = db.collection("commodities");
-
+console.log(commodity)
 function getRates(commodity){
     commodity.get().then(querySnapshot => {
         inputRates(querySnapshot.docs);
@@ -39,14 +39,14 @@ data.forEach(doc => {
     }
     function quantityShower(){
         if (item.perkilo == true){
-            return " /kg";
+            return " ₹/kg";
         } else {
-            return " /ltr";
+            return " ₹/ltr";
         }
     }
     const li = document.createElement("LI");
     li.setAttribute("id", `${doc.id}`);
-    li.innerHTML = `<p class="detail"><span class="name">${item.name}</span><span class="rate">${item.rate + " ₹ " + quantityShower()}<span></p>
+    li.innerHTML = `<p class="detail"><span class="name">${item.name}</span><span class="rate">${item.rate + quantityShower()}<span></p>
                     <p class="status">${availablityShower()}<span class="eta">updated${" : " + etaShower(eta)}</span></p>`;
     if (item.catogary == "grain"){
         grains.appendChild(li);
@@ -56,7 +56,7 @@ data.forEach(doc => {
         fruits.appendChild(li);
     } else if (item.catogary == "dairy"){
         dairys.appendChild(li);
-    } else if (item.catogary == "other"){
+    } else {
         others.appendChild(li);
     }
 })

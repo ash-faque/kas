@@ -4,16 +4,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
-  <title>KA Stores</title>
+  <title>✏ edit rates</title>
 </head>
 
 <body>
-
     <!-- HEADING -->
     <div id="head">
         <h1>KAS Data Entry!</h1>
     </div>
-
+    <!-- MESSAGE PANAL -->
+    <div id="msgBlock"><p id="message"></p></div>
+    <!-- AUTH PANAL -->
     <div id="loggedOunt">
         <form id="march-login">
             <h2>marchant login</h2>
@@ -27,7 +28,7 @@
         </form>
         <a href="/">go back! i'm not a marchent.</a>
     </div>
-
+    <!-- EDITOR PANAL -->
     <div id="loggedIn" style="display: none;"> 
         <!--  MARKET RATES ULS -->
         <div id="ratesTable">
@@ -45,8 +46,9 @@
         <!-- ADD NEW -->
         <div id="addNew">
             <form id="add-form">
-                <input type="text" name="item" id="name" placeholder="name">
-                <input type="number" name="rate" id="rate" value="0">
+                <h3>add new item</h3>
+                <input type="text" name="item" id="name" placeholder="name" required>
+                <input type="number" name="rate" id="rate" value="0" required>
                 <div class="catogary">
                     <div>
                         <input type="radio" id="grain" name="catogary" value="grain">
@@ -71,22 +73,26 @@
                 </div>
                 <div class="avl">
                     <div>
-                        <input type="radio" name="avl" id="available" value="available" checked>
-                        <label for="available">in stock</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="avl" id="not-available" value="not-available">
-                        <label for="not-available">out of stock</label>
+                        <label for="availablity">available ? </label>
+                        <input type="checkbox" name="avl" id="availablity" checked>
                     </div>
                 </div>
-                <button type="submit">add item</button>
+                <div class="per">
+                    <div>
+                        <label for="perKilo">is it per kilo ? </label>
+                        <input type="checkbox" name="per" id="perKilo" checked>
+                    </div>
+                </div>
+                <button type="submit">+ item</button>
             </form>
         </div>
-
+        <!-- GET RATE -->
+        <div>
+            <button onclick="getRates(commodity);" id="getrate">⚡</button>
+        </div>
         <!-- LOGOUT -->
-        <button id="logout">logout</button>
+        <button id="logout">🏃</button>
     </div>
-
     <!--- SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>

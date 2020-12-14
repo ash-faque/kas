@@ -1,3 +1,6 @@
+const loginSection = document.querySelector('#loggedOunt');
+const loggedinSection = document.querySelector('#loggedIn');
+
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
     if (user) {
@@ -7,17 +10,6 @@ auth.onAuthStateChanged(user => {
         loginSection.setAttribute('style', 'display: block');
         loggedinSection.setAttribute('style', 'display: none');
     }
-});
-
-
-const loginSection = document.querySelector('#loggedOunt');
-const loggedinSection = document.querySelector('#loggedIn');
-
-// logout
-const logout = document.querySelector('#logout');
-logout.addEventListener('click', (e) => {
-  e.preventDefault();
-  auth.signOut();
 });
 
 // login
@@ -37,31 +29,11 @@ loginForm.addEventListener('submit', (e) => {
   }).catch(err => {
     loginForm.querySelector('.error').innerHTML = err.message;
   });
-
 });
 
-// UPDATE RATE
-
-
-
-
-// DELETE RATE
-
-
-
-// ADD RATE
-/* const createForm = document.querySelector('#create-form');
-createForm.addEventListener('submit', (e) => {
+// logout
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', (e) => {
   e.preventDefault();
-  db.collection('guides').add({
-    title: createForm.title.value,
-    content: createForm.content.value
-  }).then(() => {
-    // close the create modal & reset form
-    const modal = document.querySelector('#modal-create');
-    M.Modal.getInstance(modal).close();
-    createForm.reset();
-  }).catch(err => {
-    console.log(err.message);
-  });
-}); */
+  auth.signOut();
+});

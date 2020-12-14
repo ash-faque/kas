@@ -5,13 +5,14 @@
 body{
     width: 100%;
     overflow-x: hidden;
-    background-color: teal;
+    background-color: rgb(0, 0, 0);
     color: white;
     text-transform: uppercase;
 }
 #march-login{
     width: 100%;
     height: 60vh;
+    margin: 30px 0;
 }
 #march-login h2, #march-login p{
     margin: 30px 0;
@@ -44,7 +45,6 @@ body{
     color: yellow;
     border: 0;
 }
-
 div{
     width: 100%;
     text-align: center;
@@ -56,21 +56,34 @@ div ul{
 div ul li{
     list-style: none;
 }
-
-
 #head{
-    background-color: rgb(117, 0, 128);
+    background-color: rgba(212, 0, 99, 0.5);
     height: 100px;
 }
 #head h1{
     padding: 30px 0;
 }
+#msgBlock{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-height: 50px;
+    padding: 10px 0 0 0;
+    font-size: 12px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 200, 0);
+    text-transform: uppercase;
+}
 #ratesTable{
-    background-color: rgba(30, 60, 0, 0.6);
+    background-color: rgba(128, 255, 0, 0.5);
+    margin: 30px 0;
 }
 #ratesTable h3{
-    font-size: 16px;
-    background-color: rgb(50, 70, 0);
+    font-size: 20px;
+    min-height: 25px;
+    background-color: rgb(0, 30, 30);
+    color: white;
+    text-align: left;
 }
 .rate-show{
     width: 100%;
@@ -79,9 +92,9 @@ div ul li{
     margin: 5px 0;
 }
 .rate-show .detail{
-    width: calc(100% - 70px);
-    min-height: 70px;
-    margin: 0 35px;
+    width: calc(100% - 120px);
+    height: 70px;
+    margin: 0 60px;
     text-align: center;
 }
 .rate-show .detail label{
@@ -98,77 +111,107 @@ div ul li{
     width: 25px;
 }
 .update, .delete{
+    cursor: pointer;
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 20px;
-    border: 1px solid white;
-    padding: 3px;
-    margin: 20px 0;
+    width: 60px;
+    height: 70px;
 }
 .delete{
-    background-color: rgba(255, 55, 55, 0.7);
+    background-color: rgba(255, 30, 30, 0.7);
     float: left;
+    font-size: 20px;
 }
 .update{
     background-color: rgba(30, 238, 30, 0.8);
     float: right;
-    margin-top: -50px;
+    margin-top: -70px;
+    font-size: 25px;
 }
 #addNew{
-    background-color: teal;
     width: 100%;
 }
 #add-form{
+    background-color: rgba(0, 255, 200, 0.5);
     width: 100%;
-    margin-top: 5vh;
+    margin-top: 5px;
     padding: 5px 0;
 }
 #add-form #name{
-    width: 75%;
+    width: 80%;
     height: 30px;
     margin: 5px;
 }
 #add-form #rate{
-    width: 75%;
+    width: 70%;
     height: 30px;
     margin: 5px;
 }
+.catogary, .avl, .per{
+    font-size: 15px;
+    width: 70%;
+    margin: 15px 15%;
+    border-radius: 5px;
+}
 .catogary{
-    background-color: rgba(0, 128, 49, 0.5);
+    background-color: rgba(0, 175, 0, 0.3);
 }
 .avl{
-    background-color: rgba(0, 49, 128, 0.5);
+    background-color: rgba(58, 121, 0, 0.3);
 }
-.catogary div, .avl div{
-    width: 100%;
-    margin: 0 5px;
+.per{
+    background-color: rgba(0, 50, 120, 0.3);
+}
+.catogary div, .avl div, .per div{
+    cursor: pointer;
+    width: 60%;
+    margin: 5px 20%;
     padding: 5px 0;
 }
 #logout, #add-form button{
+    cursor: pointer;
     color: rgb(255, 255, 255);
     background-color: teal;
     padding: 1px;
-    text-transform: uppercase;
     text-shadow: rgb(0, 0, 0) -1px 1px;
 }
 #add-form button{
     font-size: 20px;
+    font-weight: 200;
     width: 150px;
-    height: 50px;
-    border: 1px white solid;
+    height: 35px;
+    border: 1px rgb(0, 0, 0) solid;
     border-radius: 5px;
-    background-color: rgb(0, 255, 100);
     color: rgb(0, 0, 0);
-    float: right;
-    margin: 10px 20px 20px 0;
+    text-shadow: white -1px 1px;
+    background-color: rgba(0, 255, 0, 0.8);
+    margin: 10px 20px;
 }
 #logout{
-    border: 1px rgb(255, 255, 255) solid;
-    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 5vh 0 20px 20px;
+    font-size: 25px;
     background-color: rgba(255, 55, 55, 0.7);
-    width: 40%;
-    padding: 5px;
-    margin: 10vh 30% 1vh 30%;
+    border: rgb(0, 0, 0) 3px solid;
+    border-radius: 50%;
+    z-index: 100;
+    box-shadow: rgb(255, 200, 0) -1px 1px 1px;
+}
+#getrate{
+    cursor: pointer;
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 25px;
+    background-color: rgb(255, 255, 255);
+    border: rgb(0, 0, 0) 3px solid;
+    border-radius: 50%;
+    z-index: 100;
+    box-shadow: rgb(255, 200, 0) -1px 1px 1px;
 }

@@ -14,7 +14,13 @@
     <!-- NAV BAR -->
     <div id="head">
         <h1>KA Store!</h1>
-        <h3>Market Rates</h3>
+        <h2>Market Rates</h2>
+    </div>
+    <!-- LOOKOUTS -->
+    <div id="look-me">
+        <marquee behavior="scoll" scrolldelay='100' direction="left">😷always wear mask in public places</marquee>
+        <marquee behavior="scoll" scrolldelay='150' direction="left">✨wash your hands frequently</marquee>
+        <marquee behavior="scoll" scrolldelay='200' direction="left">🙊❌avoid touching on your face</marquee>
     </div>
     <!--  MARKET RATES ULS -->
     <div id="ratesTable">
@@ -31,7 +37,7 @@
             <ul class="collection" id="fruits"></ul>
         </div>
         <div class="container">
-            <h3>🐄 meat & dairy 🍖</h3>
+            <h3>🐏 meat & dairy 🍖</h3>
             <ul class="collection" id="dairy"></ul>
         </div>
         <div class="container">
@@ -39,8 +45,9 @@
             <ul class="collection" id="others"></ul>
         </div>
     </div>
+    <!-- AD PANAL -->
     <div id="ad">
-
+        <marquee behavior="" direction="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo!</marquee>
     </div>
     <!-- GET RATE -->
     <div>
@@ -49,8 +56,12 @@
     <!-- FOOT BAR -->
     <div id="foot">
         <p>Contents in this web page are not at all licenced.</p>
-        <p>Created By <a href="http://ashfaqueblathur.github.io"> Ashfaque Blathur </a></p>
-        <a href="/merch/"> edit rates </a>
+        <p>Created By <a class="glob-links" href="http://ashfaqueblathur.github.io">Ashfaque Blathur</a></p>
+        <p>Hosted at <a class="glob-links" href="http://pages.github.com">Github Pages</a></p>
+        <div class="pro-links-div">
+            <a class="pro-links" href="/merch/">edit rates</a>
+            <a class="pro-links" href="/classifides/">kas classifides (β)</a>
+        </div> 
     </div>
 
     <!--- SCRIPTS -->
@@ -75,6 +86,13 @@
       const db = firebase.firestore();  
       // update firestore settings
       db.settings({ timestampsInSnapshots: true });
+      firebase.firestore().enablePersistence().catch(function(err) {
+            if (err.code == 'failed-precondition') {
+            console.log('Multiple tabs open, persistence can only be enabled in one tab at a a time.');
+            } else if (err.code == 'unimplemented') {
+            console.log('The current browser does not support all of the features required to enable persistence');
+            }
+        });
     </script>
     <script src="/resource/index.js"></script>
 </body>

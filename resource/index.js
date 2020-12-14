@@ -1,12 +1,14 @@
 // GET REFERENCE TO COMMODITIES AND PASS IT TO SNAPSHOT DATA
 var commodity = db.collection("commodities");
-console.log(commodity)
+var getOptions = {
+    source: 'server'
+};
 function getRates(commodity){
-    commodity.get().then(querySnapshot => {
+    commodity.get(getOptions).then(querySnapshot => {
         inputRates(querySnapshot.docs);
     }, err => console.log(err.message));    
 }
-
+console.log(commodity);
 // INPUT MARKET RATES
 const grains = document.getElementById('grains');
 const vegetables = document.getElementById('vegetables');
@@ -16,7 +18,7 @@ const others = document.getElementById('others');
 const rateUls = [grains, vegetables, fruits, dairys, others]
 const inputRates = (data) => {
     rateUls.forEach(ul => ul.innerHTML = '');
-data.forEach(doc => {
+    data.forEach(doc => {
     const item = doc.data();
     const today = new Date();
     const created = new Date(item.on.toDate());
@@ -48,6 +50,7 @@ data.forEach(doc => {
     li.setAttribute("id", `${doc.id}`);
     li.innerHTML = `<p class="detail"><span class="name">${item.name}</span><span class="rate">${item.rate + quantityShower()}<span></p>
                     <p class="status">${availablityShower()}<span class="eta">updated${" : " + etaShower(eta)}</span></p>`;
+    console.log(li);
     if (item.catogary == "grain"){
         grains.appendChild(li);
     } else if (item.catogary == "vegetable"){

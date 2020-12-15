@@ -1,35 +1,27 @@
+//TOAST MAKER
+function toast(message){
+    let msgBloack = document.getElementById('msgBlock');
+    let msg = `<p>${message}</p>`;
+    msgBloack.innerHTML = msg;
+}
+
 // GET REFERENCE TO COMMODITIES AND PASS IT TO SNAPSHOT DATA
 var commodity = db.collection("commodities");
 function getRates(commodity){
     commodity.get().then(querySnapshot => {
+        toast('got commodities')
         inputRates(querySnapshot.docs);
     }, err => console.log(err.message));    
 };
-
-
-
-
-
-/* function toast(message){
-    let msgBloack = document.getElementById('message');
-    let msg = `<p>${message}</p>`;
-    msgBloack.appendChild(msg);
-
-} */
-
-
-
-
-
-
 
 // INPUT MARKET RATES
 const grains = document.getElementById('grains');
 const vegetables = document.getElementById('vegetables');
 const fruits = document.getElementById('fruits');
 const dairys = document.getElementById('dairy');
+const oils = document.getElementById('oils');
 const others = document.getElementById('others');
-const rateUls = [grains, vegetables, fruits, dairys, others]
+const rateUls = [grains, vegetables, fruits, dairys, oils, others]
 const inputRates = (data) => {
     rateUls.forEach(ul => ul.innerHTML = '');
     data.forEach(doc => {
@@ -68,6 +60,8 @@ const inputRates = (data) => {
             fruits.appendChild(li);
         } else if (item.catogary == "dairy"){
             dairys.appendChild(li);
+        } else if (item.catogary == "oil"){
+            oils.appendChild(li);
         } else {
             others.appendChild(li);
         }
@@ -88,34 +82,44 @@ function catogarySelected(){
         return catogaries[3].value;
     } else if (catogaries[4].checked){
         return catogaries[4].value;
+    } else if (catogaries[5].checked){
+        return catogaries[5].value;
     } else {
         return "other";
-    }
+    };
 };
-const perWhat = document.getElementById('perKilo');
+const qtys = Array.from(document.getElementsByName('qty'));
+function qtySelected(){
+    if (qtys[0].checked){
+        return qtys[0].value;
+    } else if (qtys[1].checked){
+        return qtys[1].value;
+    } else if (qtys[3].checked){
+        return qtys[3].value;
+    };
+};
 const avl = document.getElementById('availablity');
 function checkedWhat(among){
     if(among.value == 'on'){
         return true;
     } else {
         return false;
-    }
+    };
 };
-
 addForm.addEventListener('submit', (e) => {
   e.preventDefault();
    commodity.add({
     name: addForm.name.value,
     rate: addForm.rate.value,
+    per : qtySelected(),
     catogary : catogarySelected(),
     availablity : checkedWhat(avl),
-    perkilo : checkedWhat(perWhat),
     on : firebase.firestore.Timestamp.now()
   }).then(() => {
-    // close the create modal & reset form
     addForm.reset();
-     }).catch(err => {
-    console.log(err.message);
+    toast('item added succesfully');
+    }).catch(err => {
+    console.log(err.message, err);
   });
 });
 
@@ -127,18 +131,33 @@ function updateItem(seema){
         availablity : checkedWhat(seema.parentElement[2]),
         on : firebase.firestore.Timestamp.now()
     }).then(function() {
-        console.log("Document successfully updated!");
+        toast('item successfully updated')
+        commodity.doc(docId).get().then(doc => {
+        console.log('got updated document');
+        const item = doc.data();
+        function availablityUpdater(){
+            if (item.availablity == true){
+                return 'on';
+            } else {
+                return '';
+            }
+        }
+        let form = seema.parentElement
+        console.log(form);
+        form[1].innerHTML = `${item.rate}`;
+        form[2].setAttribute('checked', availablityUpdater());
+        }, err => console.log(err.message));
     }).catch(function(error) {
         console.error("Error updating document: ", error);
     });
 };
 
-    
 // DELETE RATE
 function deleteItem(rosy){
     let itemId = rosy.id;
     commodity.doc(itemId).delete().then(function() {
-        console.log("Document successfully deleted!");
+        toast("item successfully deleted");
+        rosy.parentElement.parentElement.style.display = "none";
     }).catch(function(error) {
         console.error("Error removing document: ", error);
     });

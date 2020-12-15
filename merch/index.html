@@ -12,8 +12,6 @@
     <div id="head">
         <h1>KAS Data Entry!</h1>
     </div>
-    <!-- MESSAGE PANAL -->
-    <div id="msgBlock"><p id="message"></p></div>
     <!-- AUTH PANAL -->
     <div id="loggedOunt">
         <form id="march-login">
@@ -29,7 +27,9 @@
         <a href="/">go back! i'm not a marchent.</a>
     </div>
     <!-- EDITOR PANAL -->
-    <div id="loggedIn" style="display: none;"> 
+    <div id="loggedIn" style="display: none;">
+        <!-- MESSAGE PANAL -->
+        <div id="msgBlock"></div>
         <!--  MARKET RATES ULS -->
         <div id="ratesTable">
             <h3>grains</h3>
@@ -40,6 +40,8 @@
             <ul class="collection" id="fruits"></ul>
             <h3>meat & dairy</h3>
             <ul class="collection" id="dairy"></ul>
+            <h3>oils</h3>
+            <ul class="collection" id="oils"></ul>
             <h3>others</h3>
             <ul class="collection" id="others"></ul>
         </div>
@@ -56,34 +58,46 @@
                     </div>
                     <div>
                         <input type="radio" id="vegetable" name="catogary" value="vegetable">
-                        <label for="vegetable">vegetable</label>
+                        <label for="vegetable">vege.</label>
                     </div>
                     <div>
                         <input type="radio" id="fruit" name="catogary" value="fruit">
                         <label for="fruit">fruit</label>
                     </div>
                     <div>
-                        <input type="radio" name="catogary" id="meat" value="dairy"> 
+                        <input type="radio" id="meat" name="catogary" value="dairy"> 
                         <label for="meat">dairy</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="oil" name="catogary" value="oil">
+                        <label for="oil">oils</label>
                     </div>
                     <div>
                         <input type="radio" id="other" name="catogary" value="other" checked>
                         <label for="other">other</label>
                     </div>
                 </div>
+                <div class="per">
+                    <div>
+                        <input type="radio" id="nos" name="qty" value=" /no:s">
+                        <label for="nos">/no:s</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="kg" name="qty" value=" /kgs" checked>
+                        <label for="kg">/kgs</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="ltr" name="qty" value=" /ltrs">
+                        <label for="ltr">/ltrs</label>
+                    </div>
+                </div>
                 <div class="avl">
                     <div>
-                        <label for="availablity">available ? </label>
+                        <label for="availablity">availablity</label>
                         <input type="checkbox" name="avl" id="availablity" checked>
                     </div>
                 </div>
-                <div class="per">
-                    <div>
-                        <label for="perKilo">is it per kilo ? </label>
-                        <input type="checkbox" name="per" id="perKilo" checked>
-                    </div>
-                </div>
-                <button type="submit">+ item</button>
+                <button type="submit">+item</button>
             </form>
         </div>
         <!-- GET RATE -->

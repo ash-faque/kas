@@ -1,0 +1,36 @@
+{
+    "short_name": "KA S",
+    "name": "KA Store Market Rates!",
+    "description": "KA Stores Market Rate information.",
+    "icons": [
+                {
+                    "src": "/resource/favicon/favicon-16x16.png",
+                    "type": "image/png",
+                    "sizes": "16x16"
+                },
+                {
+                    "src": "/resource/favicon/favicon-32x32.png",
+                    "type": "image/png",
+                    "sizes": "32x32"
+                },
+                {
+                    "src": "/resource/favicon/apple-touch-icon.png",
+                    "type": "image/png",
+                    "sizes": "180x180"
+                },
+                {
+                    "src": "resource/favicon/android-chrome-192x192.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "resource/favicon/android-chrome-512x512.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                }
+    ],
+    "display": "fullscreen",
+    "scope": "/",
+    "background_color": "#0a191a",
+    "theme_color": "#912eff"
+  }

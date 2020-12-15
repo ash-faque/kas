@@ -1,21 +1,59 @@
-// GET REFERENCE TO COMMODITIES AND PASS IT TO SNAPSHOT DATA
-var commodity = db.collection("commodities");
-var getOptions = {
-    source: 'server'
+//TOAST MAKER
+function toast(message){
+    let toastBlock = document.getElementById('toastBlock');
+    let msg = `<span>${message}</span>`;
+    toastBlock.innerHTML = msg;
+    setTimeout(function(){ toastBlock.innerHTML = ''; },3000);
 };
-function getRates(commodity){
-    commodity.get(getOptions).then(querySnapshot => {
+
+// GET REFERENCE TO COMMODITIES AND GETRATE
+var commodity = db.collection("commodities");
+const server = { source: 'server' };
+const cache = { source: 'cache' };
+
+function getRates(from){
+    commodity.get(from).then(querySnapshot => {
+        toastSource(querySnapshot);
         inputRates(querySnapshot.docs);
-    }, err => console.log(err.message));    
+    }, err => console.log(err.message));
+};
+
+function triggerFetch(){
+    if (localStorage.lft){
+        var lft = localStorage.lft;
+        var ct = new Date().getTime();
+        const threshold = 1000*60*10;
+        if ((ct - lft) < threshold){
+            //get rate from cache
+            getRates(cache);
+        } else if ((ct - lft) > threshold){
+            //get rate from server
+            getRates(server);
+        }
+    } else {
+        //get rate from server
+        getRates(server);
+    }
 }
-console.log(commodity);
+
+function toastSource(querySnapshot){
+    if (querySnapshot.metadata.fromCache) {
+        toast('got commodity lists from cache succesfully');
+    } else {
+        localStorage.lft = new Date().getTime();
+        toast('got commodity lists from server succesfully');
+    };
+};
+
 // INPUT MARKET RATES
 const grains = document.getElementById('grains');
 const vegetables = document.getElementById('vegetables');
 const fruits = document.getElementById('fruits');
 const dairys = document.getElementById('dairy');
+const oils = document.getElementById('oils');
 const others = document.getElementById('others');
-const rateUls = [grains, vegetables, fruits, dairys, others]
+const rateUls = [grains, vegetables, fruits, dairys, oils, others];
+
 const inputRates = (data) => {
     rateUls.forEach(ul => ul.innerHTML = '');
     data.forEach(doc => {
@@ -30,27 +68,19 @@ const inputRates = (data) => {
             return "yesterday";
         } else {
             return eta + " days ago";
-        }
-    }
+        };
+    };
     function availablityShower(){
         if (item.availablity == true){
             return '<span class="stock inStock">available for purchase</span>';
         } else {
             return '<span class="stock outOfStock">currently out of stock</span>';
-        }
-    }
-    function quantityShower(){
-        if (item.perkilo == true){
-            return " ₹/kg";
-        } else {
-            return " ₹/ltr";
-        }
-    }
+        };
+    };
     const li = document.createElement("LI");
     li.setAttribute("id", `${doc.id}`);
-    li.innerHTML = `<p class="detail"><span class="name">${item.name}</span><span class="rate">${item.rate + quantityShower()}<span></p>
+    li.innerHTML = `<p class="detail"><span class="name">${item.name}</span><span class="tag"><span class="rate">${item.rate}</span><span class="per">${item.per}</span></span></p>
                     <p class="status">${availablityShower()}<span class="eta">updated${" : " + etaShower(eta)}</span></p>`;
-    console.log(li);
     if (item.catogary == "grain"){
         grains.appendChild(li);
     } else if (item.catogary == "vegetable"){
@@ -59,8 +89,10 @@ const inputRates = (data) => {
         fruits.appendChild(li);
     } else if (item.catogary == "dairy"){
         dairys.appendChild(li);
+    } else if (item.catogary == "oil"){
+        oils.appendChild(li);
     } else {
         others.appendChild(li);
-    }
-})
+    };
+});
 };

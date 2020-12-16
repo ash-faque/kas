@@ -8,16 +8,15 @@ function toast(message){
 
 // GET REFERENCE TO COMMODITIES AND GETRATE
 var commodity = db.collection("commodities");
-const server = { source: 'server' };
+const server = { source: 'default' };
 const cache = { source: 'cache' };
-
 function getRates(from){
     commodity.get(from).then(querySnapshot => {
         toastSource(querySnapshot);
         inputRates(querySnapshot.docs);
     }, err => console.log(err.message));
 };
-
+window.onload = getRates(cache);
 function triggerFetch(){
     if (localStorage.lft){
         var lft = localStorage.lft;
@@ -33,9 +32,8 @@ function triggerFetch(){
     } else {
         //get rate from server
         getRates(server);
-    }
-}
-
+    };
+};
 function toastSource(querySnapshot){
     if (querySnapshot.metadata.fromCache) {
         toast('got commodity lists from cache succesfully');

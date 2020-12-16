@@ -23,7 +23,7 @@ body{
     background: hsla(152, 100%, 50%, 1);
     background: linear-gradient(90deg, hsl(286.9, 100%, 50.8%) 0%, hsl(202.6, 100%, 50%) 100%);
     font-family: 'Ultra', serif;
-    font-weight: 900;
+    letter-spacing: 3px;
     text-shadow: rgb(0, 0, 0) -2px 2px, rgb(255, 0, 255) 2px -2px;
     text-transform: uppercase;
     z-index: 100;
@@ -31,6 +31,7 @@ body{
 #head h1{
     line-height: 40px;
     padding: 10px 0 0 0;
+    text-decoration: underline;
 }
 #head h2{
     font-size: 20px;
@@ -69,16 +70,16 @@ body{
     font-family: 'Ultra', serif;
     font-weight: 100;
     letter-spacing: 2px;
-    padding-left: 5px;
+    padding-left: 8px;
     color: #ffc83d;
-    text-shadow: rgb(0, 0, 0) -1px 1px;
+    text-shadow: #2284ff -1px 1px;
     border: hsla(152, 100%, 60%) 1px solid;
     line-height: 40px;
 }
 .container h3 span{
     float: right;
     padding-right: 5px;
-    text-shadow: rgb(255, 255, 255) -2px 2px 2px;
+    text-shadow: rgb(255, 255, 255) -1px 1px;
 }
 .container ul{
     text-align: center;
@@ -161,10 +162,10 @@ body{
     width: 60px;
     height: 60px;
     position: fixed;
-    bottom: 60px;
+    bottom: 100px;
     right: 30px;
     font-size: 25px;
-    background-color: rgb(255, 255, 255);
+    background-color: #2284ff;
     border: rgb(0, 0, 0) 3px solid;
     border-radius: 50%;
     z-index: 100;
@@ -176,7 +177,7 @@ body{
     text-align: center;
     font-family: 'Ultra', serif;
     font-size: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     background: rgb(0, 0, 0);
     font-weight: 300;
     color: rgb(255, 255, 255);
@@ -214,10 +215,9 @@ body{
 #toastBlock span{
     display: block;
     width: 100%;
-    min-height: 50px;
-    padding: 10px 0;
+    padding: 5px 0;
     color: rgb(255, 200, 0);
-    font-size: 14px;
+    font-size: 10px;
     letter-spacing: 2px;
     font-weight: 100;
     font-family: 'Kalam', cursive;

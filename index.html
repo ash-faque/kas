@@ -1,10 +1,16 @@
-<html lang="en">
+<!DOCTYPE html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ce60b0"/>
+  <link rel="canonical" href="https://kas-info.github.io"/>
   <title>KA Stores</title>
+  <meta name="Description" content="KA Stores authorized online market front. Know the rates realtime for future purchases!">
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="/resource/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Poppins:wght@900&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/resource/favicon/apple-touch-icon.png">
 </head>
 <body>
     <!-- NAV BAR -->
@@ -54,10 +60,9 @@
     </div>
     <!-- FOOT BAR -->
     <div id="foot">
-        <p>Contents in this web page are not at all licenced.</p>
+        <p>Contents in this web page are licenced under <a class="glob-links" target="blank" href="apache3.com">Apache 3.0</a></p>
         <p>Created By <a class="glob-links" target="blank" href="https://ashfaqueblathur.github.io">Ashfaque Blathur</a></p>
-        <p>Hosted at <a class="glob-links" target="blank" href="https://pages.github.com">Github Pages</a></p>
-        <p>Freeloads on <a class="glob-links" target="blank" href="https://firebase.google.com/">Firebase</a> for data hosting</p>
+        <p>Hosted at <a class="glob-links" target="blank" href="https://pages.github.com">Github Pages</a> & <a class="glob-links" target="blank" href="https://firebase.google.com/">Firebase</a></p>
         <div class="pro-links-div">
             <a class="pro-links" href="/merch/">edit rates</a>
             <a class="pro-links" href="/classifides/">kas classifides (β)</a>
@@ -92,19 +97,16 @@
             console.log('Multiple tabs open, persistence can only be enabled in one tab at a a time.');
             } else if (err.code == 'unimplemented') {
             console.log('The current browser does not support all of the features required to enable persistence');
-            }
+            };
         });
     </script>
     <script src="/resource/index.js"></script>
+    <script src="upup.min.js"></script>
     <script>
-         // service worker registration
-         if ("serviceWorker" in navigator) {
-                window.addEventListener("load", () => {
-                    navigator.serviceWorker.register("sw.js").then(swReg => { }).catch(err => {
-                        console.error('Service Worker Error', err);
-                    });
-                });
-            }
+      UpUp.start({
+        'content-url': 'offline.html', // show this page to offline users
+        'assets': ['favicon.ico']
+      });
     </script>
 </body>
 </html>

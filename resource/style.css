@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Ultra&display=swap');
 /*  
-    font-family: 'Kalam', cursive;
-    font-family: 'Ultra', serif;
+font-family: 'Kalam', cursive;
+font-family: 'Poppins', sans-serif;
 */
 
 *{
@@ -16,42 +15,42 @@ body{
 }
 #head{
     width: 100%;
-    height: 80px;
+    height: 60px;
     position: sticky;
     top: 0;
-    text-align: center;
     background: hsla(152, 100%, 50%, 1);
-    background: linear-gradient(90deg, hsl(286.9, 100%, 50.8%) 0%, hsl(202.6, 100%, 50%) 100%);
-    font-family: 'Ultra', serif;
+    background: linear-gradient(90deg, hsl(286.9, 100%, 50.8%) 0%, rgb(50, 150, 255) 100%);
+    font-family: 'Poppins', sans-serif;
     letter-spacing: 3px;
     text-shadow: rgb(0, 0, 0) -2px 2px, rgb(255, 0, 255) 2px -2px;
     text-transform: uppercase;
     z-index: 100;
 }
 #head h1{
-    line-height: 40px;
-    padding: 10px 0 0 0;
-    text-decoration: underline;
+    line-height: 30px;
+    padding-top: 10px;
+    margin-left: 10px;
 }
 #head h2{
-    font-size: 20px;
-    line-height: 25px;
-    margin: 0 0 5px 0;
+    line-height: 15px;
+    margin: 0 0 5px 10px;
 }
+
 #look-me{
     margin: 5px 0;
     display: block;
     width: 100%;
     height: 60px;
-    background: linear-gradient(45deg, rgb(230, 130, 255) 0%,rgb(0, 195, 255) 100%);
+    background: rgba(0, 0, 0, 0.5);
 }
 #look-me marquee{
     line-height: 20px;
     font-size: 18px;
     font-family: 'Kalam', cursive;
-    color: rgb(0, 0, 0);
-    text-shadow: rgb(255, 255, 0) -2px 1px, rgb(255, 255, 255) 1px -1px;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 0, 0) -2px 1px, rgb(255, 255, 255) 1px -1px;
 }
+
 #ratesTable{
     width: 100%;
 }
@@ -67,7 +66,7 @@ body{
     text-align: left;
     text-transform: uppercase;
     text-decoration: underline;
-    font-family: 'Ultra', serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 100;
     letter-spacing: 2px;
     padding-left: 8px;
@@ -108,31 +107,35 @@ body{
     max-height: 25px;
 }
 .tag{
+    max-height: 20px;
     float: right;
     margin: 0 10px 0 0;
-
 }
 .rate{
-    max-height: 25px;
-    font-family: 'Ultra', serif;
-    padding: 0 5px;
-    background-color: tomato;
+    max-height: 20px;
+    min-width: 20px;
+    line-height: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 0 2px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 255, 85, 0.5);
+    border-radius: 50%;
 }
 .per{
     height: 15px;
     margin-top: 10px;
-    font-size: 10px;
+    font-size: 12px;
 }
 .stock{
     float: left;
     margin: 0 0 0 10px;
 }
 .inStock{
-    color: yellowgreen;
+    color: rgb(0, 255, 0);
     max-height: 15px;
 }
 .outOfStock{
-    color: tomato;
+    color: rgb(255, 0, 0);
     max-height: 15px;
 }
 .eta{
@@ -156,13 +159,14 @@ body{
     border-radius: 5px;
     background-color: hsla(152, 100%, 50%, 0.5);
 }
+
 #getrate{
     cursor: pointer;
     display: block;
     width: 60px;
     height: 60px;
     position: fixed;
-    bottom: 100px;
+    bottom: 40px;
     right: 30px;
     font-size: 25px;
     background-color: #2284ff;
@@ -171,12 +175,12 @@ body{
     z-index: 100;
     box-shadow: rgb(255, 200, 0) -1px 1px 1px;
 }
+
 #foot{
     margin: 10px 0;
     width: 100%;
     text-align: center;
-    font-family: 'Ultra', serif;
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 30px;
     background: rgb(0, 0, 0);
     font-weight: 300;
@@ -205,6 +209,7 @@ body{
     background-color: rgba(255, 255, 255, 0.75);
     color: rgb(0, 0, 0);
 }
+
 #toastBlock{
     display: block;
     position: fixed;
@@ -217,7 +222,7 @@ body{
     width: 100%;
     padding: 5px 0;
     color: rgb(255, 200, 0);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 2px;
     font-weight: 100;
     font-family: 'Kalam', cursive;

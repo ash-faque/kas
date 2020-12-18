@@ -26,11 +26,13 @@
                 {
                     "src": "resource/favicon/android-chrome-512x512.png",
                     "type": "image/png",
-                    "sizes": "512x512"
+                    "sizes": "512x512",
+                    "purpose": "maskable"
                 }
     ],
     "display": "fullscreen",
     "scope": "/",
     "background_color": "#0a191a",
-    "theme_color": "#912eff"
+    "theme_color": "#912eff",
+    "start_url ": "/"
   }

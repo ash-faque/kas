@@ -70,7 +70,7 @@ div ul li{
     min-height: 30px;
     padding: 10px 0 0 0;
     font-size: 15px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(100, 100, 100);
     text-transform: uppercase;
 }
 #msgBlock p{
@@ -140,15 +140,23 @@ div ul li{
     margin-top: 5px;
     padding: 5px 0;
 }
-#add-form #name{
+#add-form .name{
     width: 90%;
+    height: 35px;
+    margin: 2px 0;
+}
+#add-form #info{
+    width: 25%;
     height: 30px;
-    margin: 5px;
+}
+#add-form #link{
+    width: 64%;
+    height: 30px;
 }
 #add-form #rate{
     width: 90%;
     height: 30px;
-    margin: 5px;
+    margin: 2px 0;
 }
 .catogary, .avl, .per{
     display: flex;
@@ -160,17 +168,17 @@ div ul li{
     border-radius: 5px;
 }
 .catogary{
-    background-color: rgba(0, 175, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 .avl{
-    background-color: rgba(58, 121, 0, 0.3);
+    background-color: rgba(46, 133, 255, 0.3);
 }
 .per{
-    background-color: rgba(0, 50, 120, 0.3);
+    background-color: rgba(94, 236, 255, 0.3);
 }
 .catogary div, .per div{
     cursor: pointer;
-    width: 30%;
+    width: 25%;
     margin: 5px;
     padding: 5px 0;
 }
@@ -215,8 +223,9 @@ div ul li{
     cursor: pointer;
     text-transform: uppercase;
     display: block;
-    width: 60%;
+    width: 50px;
     height: 50px;
+    border-radius: 50%;
     margin: 35vh 0 20px 20px;
     font-size: 25px;
     background-color: rgba(255, 55, 55, 0.7);
@@ -227,12 +236,12 @@ div ul li{
 #getrate{
     cursor: pointer;
     display: block;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    font-size: 25px;
+    font-size: 20px;
     background-color: rgb(255, 255, 255);
     border: rgb(0, 0, 0) 3px solid;
     border-radius: 50%;
@@ -240,13 +249,17 @@ div ul li{
     box-shadow: rgb(255, 200, 0) -1px 1px 1px;
 }
 @keyframes toastHide{
-    from{
+    0%{
         opacity: 1;
-        color: red;
+        color: rgb(255, 255, 0);
     }
-    to{
+    60%{
+        opacity: 1;
+        color: rgb(0, 255, 0);
+    }
+    100%{
         display: none;
         opacity: 0;
-        color: yellow;
+        color: rgb(255, 0, 0);
     }
 }

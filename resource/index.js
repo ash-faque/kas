@@ -10,18 +10,35 @@ function toast(message){
 var commodity = db.collection("commodities");
 const server = { source: 'default' };
 const cache = { source: 'cache' };
+if (localStorage.lft){
+    window.onload = getRates(cache);
+} else {
+    window.onload = getRates(server);
+};
+
+const lnSelection = document.getElementById('ln_selector');
+if (localStorage.ln){
+    if (localStorage.ln == "e"){
+        lnSelection.children[1].style.display = 'none';
+    } else if (localStorage.ln == "m"){
+        lnSelection.children[2].style.display = 'none';
+    } else if (localStorage.ln == "h"){
+        lnSelection.children[3].style.display = 'none';
+    };
+} else {
+    localStorage.ln = "e";
+};
 function getRates(from){
     commodity.get(from).then(querySnapshot => {
         toastSource(querySnapshot);
         inputRates(querySnapshot.docs);
     }, err => console.log(err.message));
 };
-window.onload = getRates(cache);
 function triggerFetch(){
     if (localStorage.lft){
         var lft = localStorage.lft;
         var ct = new Date().getTime();
-        const threshold = 1000*60*10;
+        const threshold = 1000*60*1;
         if ((ct - lft) < threshold){
             //get rate from cache
             getRates(cache);
@@ -36,10 +53,10 @@ function triggerFetch(){
 };
 function toastSource(querySnapshot){
     if (querySnapshot.metadata.fromCache) {
-        toast('got commodity lists from cache succesfully');
+        toast('got commodity lists from cache');
     } else {
         localStorage.lft = new Date().getTime();
-        toast('got commodity lists from server succesfully');
+        toast('got commodity lists from server');
     };
 };
 
@@ -59,6 +76,15 @@ const inputRates = (data) => {
     const today = new Date();
     const created = new Date(item.on.toDate());
     const eta = Math.ceil((today - created) / (1000 * 60 * 60 * 24));
+    function nameThrow(){
+        if (localStorage.ln == "e"){
+            return item.e_name;
+        } else if (localStorage.ln == "m"){
+            return item.m_name;
+        } else if (localStorage.ln == "h"){
+            return item.h_name;
+        };
+    };
     function etaShower(eta){
         if (eta == 1){
             return "today";
@@ -77,8 +103,17 @@ const inputRates = (data) => {
     };
     const li = document.createElement("LI");
     li.setAttribute("id", `${doc.id}`);
-    li.innerHTML = `<p class="detail"><span class="name">${item.name}</span><span class="tag"><span class="rate">${item.rate}</span><span class="per">${item.per}</span></span></p>
-                    <p class="status">${availablityShower()}<span class="eta">updated${" : " + etaShower(eta)}</span></p>`;
+    li.innerHTML = `<p class="detail">
+                            <a class="info" onclick="${item.link}">${item.icon}</a>
+                            <span class="name">${nameThrow()}</span>
+                        <span class="tag">
+                            <span class="rate">${item.rate}</span>
+                            <span class="per">${item.per}</span>
+                        </span>
+                    </p>
+                    <p class="status">${availablityShower()}
+                        <span class="eta">updated${" : " + etaShower(eta)}</span>
+                    </p>`;
     if (item.catogary == "grain"){
         grains.appendChild(li);
     } else if (item.catogary == "vegetable"){
@@ -93,4 +128,9 @@ const inputRates = (data) => {
         others.appendChild(li);
     };
 });
+};
+function chooseLn(ln){
+    localStorage.ln = ln;
+    console.log(ln);
+    location.reload();
 };

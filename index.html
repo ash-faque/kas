@@ -1,4 +1,5 @@
-<!DOCTYPE html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +16,13 @@
 <body>
     <!-- NAV BAR -->
     <div id="head">
-        <h1>KA Store!</h1>
-        <h2>Market Rates</h2>
+        <div class="head-name">
+            <h1>KA Store!</h1>
+            <h2>Market Rates</h2>
+        </div>
+        <div class="icon">
+            <img src="/favicon.ico" alt="icon">
+        </div>
     </div>
     <!-- LOOKOUTS -->
     <div id="look-me">
@@ -58,8 +64,21 @@
     <div>
         <button onclick="triggerFetch();" id="getrate">⚡</button>
     </div>
+
     <!-- FOOT BAR -->
     <div id="foot">
+        <!-- TRILINGUAL SHIT -->
+        <div id="ln_selector">
+            <p id="discri">Commodity details are available in two more languages. Please choose your preference.</p>
+            <p class="lns" onclick="chooseLn('e')">english</p>
+            <p class="lns" onclick="chooseLn('m')">malayalam</p>
+            <p class="lns" onclick="chooseLn('h')">hindi</p>
+        </div>
+        <!-- ACTUAL FOOT CONTENT -->
+        <div>
+            <h4></h4>
+            <p></p>
+        </div>
         <p>Contents in this web page are licenced under <a class="glob-links" target="blank" href="apache3.com">Apache 3.0</a></p>
         <p>Created By <a class="glob-links" target="blank" href="https://ashfaqueblathur.github.io">Ashfaque Blathur</a></p>
         <p>Hosted at <a class="glob-links" target="blank" href="https://pages.github.com">Github Pages</a> & <a class="glob-links" target="blank" href="https://firebase.google.com/">Firebase</a></p>
@@ -101,27 +120,5 @@
         });
     </script>
     <script src="/resource/index.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-            registration.addEventListener('updatefound', function() {
-                // If updatefound is fired, it means that there's
-                // a new service worker being installed.
-                var installingWorker = registration.installing;
-                console.log('A new service worker is being installed:',
-                installingWorker);
-        
-                // You can listen for changes to the installing service worker's
-                // state via installingWorker.onstatechange
-            });
-            })
-            .catch(function(error) {
-            console.log('Service worker registration failed:', error);
-            });
-        } else {
-            console.log('Service workers are not supported.');
-        };
-    </script>    
 </body>
 </html>

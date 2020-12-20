@@ -45,7 +45,7 @@ const inputRates = (data) => {
         li.innerHTML = `<form class="rate-show">
                             <button class="delete" id="${doc.id}" type="button" onclick="deleteItem(this);">✖</button>
                             <div class="detail">
-                                <label for="rate">${item.name}</label>                  
+                                <label for="rate">${item.e_name}</label>                  
                                 <input type="number" name="rate" value="${item.rate}" required>
                                 <span>${quantityShower()}</span>
                                 ${availablityShower()}
@@ -109,7 +109,11 @@ function checkedWhat(among){
 addForm.addEventListener('submit', (e) => {
   e.preventDefault();
    commodity.add({
-    name: addForm.name.value,
+    e_name: addForm.e_name.value,
+    m_name: addForm.m_name.value,
+    h_name: addForm.h_name.value,
+    icon: addForm.info.value,
+    link: addForm.link.value,
     rate: addForm.rate.value,
     per : qtySelected(),
     catogary : catogarySelected(),

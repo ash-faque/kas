@@ -16,6 +16,11 @@ if (localStorage.lft){
     window.onload = getRates(server);
 };
 
+function chooseLn(ln){
+    localStorage.ln = ln;
+    console.log(ln);
+    location.reload();
+};
 const lnSelection = document.getElementById('ln_selector');
 if (localStorage.ln){
     if (localStorage.ln == "e"){
@@ -26,8 +31,9 @@ if (localStorage.ln){
         lnSelection.children[3].style.display = 'none';
     };
 } else {
-    localStorage.ln = "e";
+    localStorage.ln = "h";
 };
+
 function getRates(from){
     commodity.get(from).then(querySnapshot => {
         toastSource(querySnapshot);
@@ -96,9 +102,9 @@ const inputRates = (data) => {
     };
     function availablityShower(){
         if (item.availablity == true){
-            return '<span class="stock inStock">available for purchase</span>';
+            return '<span class="stock inStock">available</span>';
         } else {
-            return '<span class="stock outOfStock">currently out of stock</span>';
+            return '<span class="stock outOfStock">out of stock</span>';
         };
     };
     const li = document.createElement("LI");
@@ -106,12 +112,13 @@ const inputRates = (data) => {
     li.innerHTML = `<p class="detail">
                             <a class="info" onclick="${item.link}">${item.icon}</a>
                             <span class="name">${nameThrow()}</span>
-                        <span class="tag">
-                            <span class="rate">${item.rate}</span>
-                            <span class="per">${item.per}</span>
-                        </span>
                     </p>
-                    <p class="status">${availablityShower()}
+                    <p class="tag">
+                        <span class="rate">${item.rate}</span>
+                        <span class="per">${item.per}</span>
+                    </p>
+                    <p class="status">
+                        ${availablityShower()}
                         <span class="eta">updated${" : " + etaShower(eta)}</span>
                     </p>`;
     if (item.catogary == "grain"){
@@ -128,9 +135,4 @@ const inputRates = (data) => {
         others.appendChild(li);
     };
 });
-};
-function chooseLn(ln){
-    localStorage.ln = ln;
-    console.log(ln);
-    location.reload();
 };

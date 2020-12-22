@@ -94,72 +94,78 @@ body{
 }
 .container ul li{
     list-style: none;
-    width: 99%;
+    width: 100%;
     height: 40px;
-    margin: 3px 3px;
+    margin: 2px 0;
     text-transform: uppercase;
     font-family: 'Kalam', cursive;
 }
+
+
 .detail{
-    height: 25px;
+    width: 70%;
+    height: 30px;
+    font-size: 20px;
     font-weight: 900;
-}
-.status{
-    height: 15px;
-    font-size: 10px;
-    color: rgb(150, 240, 0);
-    max-height: 10px;
-}
-.info{
-    float: left;
-    max-height: 25px;
-}
-.name{
-    max-height: 25px;
+    text-align: start;
 }
 .tag{
-    max-height: 20px;
+    width: 30%;
     float: right;
-    margin: 0 10px 0 0;
+    margin-top: -30px;
+    padding-right: 5px;
+    height: 30px;
+    font-weight: 900;
+    text-align: end;
 }
+.status{
+    width: 100%;
+    height: 10px;
+    font-size: 10px;
+    color: rgb(150, 240, 0);
+}
+
+.info{
+    margin: 0 0 0 5px;
+    padding: 5px 5px 0 0;
+    font-size: 15px;
+    background-color: #2285ff3f;
+    text-shadow: #ffffff -1px 1px, #ffffff -1px -1px;
+}
+.name{
+    text-shadow: #000000 -1px 1px;
+}
+
 .rate{
-    max-height: 20px;
-    min-width: 20px;
-    line-height: 20px;
     font-family: 'Poppins', sans-serif;
+    font-size: 20px;
     padding: 0 2px;
-    color: rgb(255, 255, 255);
-    background-color: rgba(37, 41, 0, 0.5);
 }
 .per{
-    height: 15px;
-    margin-top: 10px;
     font-size: 12px;
 }
+
 .stock{
     float: left;
+    margin-left: 5px;
 }
 .inStock{
     color: rgb(0, 255, 0);
-    max-height: 10px;
 }
 .outOfStock{
     color: rgb(255, 100, 0);
-    max-height: 10px;
 }
 .eta{
-    position: absolute; 
-    right: 0;
-    margin: 0 2% 0 0;
-    max-height: 10px;
+    float: right;
+    margin-right: 5px;
 }
 .container ul li::after{
     content: "";
     display: block;
-    width: 99%;
+    width: calc(100% - 5px);
     height: 1px;
     background: rgb(255, 255, 255);
-    margin: 4px 0 0 0;
+    margin: 3px 0 0 2.5px;
 }
 
 #ad{
@@ -185,35 +191,35 @@ body{
     z-index: 100;
     box-shadow: rgb(255, 255, 255) -1px 1px, rgb(255, 255, 255) 1px -1px;
 }
+
+#foot{
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    margin-bottom: 30px;
+    background: rgb(0, 0, 0);
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+}
 #ln_selector{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     font-size: 12px;
 }
 #discri{
     width: 95%;
 }
 .lns{
-    width: 40%;
+    width: 30%;
     cursor: pointer;
     text-transform: uppercase;
     text-align: center;
     font-family: 'Kalam', cursive;
     background-color: #2285ff3b;
     color: rgb(255, 255, 255);
-    padding: 3px 0;
-    margin: 5px 0;
-}
-#foot{
-    margin: 5px 0;
-    width: 100%;
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: 30px;
-    background: rgb(0, 0, 0);
-    font-weight: 300;
-    color: rgb(255, 255, 255);
+    margin: 2px;
 }
 .glob-links{
     display: inline-block;

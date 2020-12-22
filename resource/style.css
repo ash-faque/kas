@@ -126,10 +126,10 @@ body{
 }
 
 .info{
+    cursor: pointer;
     margin: 0 0 0 5px;
     padding: 5px 5px 0 0;
     font-size: 15px;
-    background-color: #2285ff3f;
     text-shadow: #ffffff -1px 1px, #ffffff -1px -1px;
 }
 .name{

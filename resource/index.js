@@ -110,7 +110,7 @@ const inputRates = (data) => {
     const li = document.createElement("LI");
     li.setAttribute("id", `${doc.id}`);
     li.innerHTML = `<p class="detail">
-                            <a class="info" onclick="${item.link}">${item.icon}</a>
+                            <a class="info" href="${item.link}">${item.icon}</a>
                             <span class="name">${nameThrow()}</span>
                     </p>
                     <p class="tag">

@@ -45,7 +45,7 @@ const inputRates = (data) => {
         li.innerHTML = `<form class="rate-show">
                             <button class="delete" id="${doc.id}" type="button" onclick="deleteItem(this);">✖</button>
                             <div class="detail">
-                                <label for="rate">${item.e_name}</label>                  
+                                <label for="rate">${item.e_name}</label>
                                 <input type="number" name="rate" value="${item.rate}" required>
                                 <span>${quantityShower()}</span>
                                 ${availablityShower()}

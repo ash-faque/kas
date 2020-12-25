@@ -57,7 +57,7 @@ body{
     line-height: 14px;
     font-size: 14px;
     margin: 1px 0;
-    color: white;
+    color: #ffc83d;
     font-family: 'Kalam', cursive;
 }
 
@@ -98,7 +98,6 @@ body{
     height: 40px;
     margin: 2px 0;
     text-transform: uppercase;
-    font-family: 'Kalam', cursive;
 }
 
 
@@ -130,7 +129,7 @@ body{
     margin: 0 0 0 5px;
     padding: 5px 5px 0 0;
     font-size: 15px;
-    text-shadow: #ffffff -1px 1px, #ffffff -1px -1px;
+    text-shadow: #ffffff -1px 1px;
 }
 .name{
     text-shadow: #000000 -1px 1px;
@@ -179,34 +178,34 @@ body{
 #getrate{
     cursor: pointer;
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     position: fixed;
     bottom: 40px;
     right: 30px;
     font-size: 25px;
-    background-color: #2284ff;
-    border: rgb(0, 0, 0) 3px solid;
     border-radius: 50%;
+    border: 2px #000000 solid;
+    background-color: #2ca3f2;
+    text-shadow: #ffc83d -1px -1px 1px, #ffc83d 1px -1px 1px, #ffc83d -1px 1px 1px, #ffc83d 1px 1px 1px;
     z-index: 100;
-    box-shadow: rgb(255, 255, 255) -1px 1px, rgb(255, 255, 255) 1px -1px;
+    transition: 300ms;
 }
-
-#foot{
-    margin: 5px 0;
-    width: 100%;
-    text-align: center;
-    font-size: 10px;
-    margin-bottom: 30px;
-    background: rgb(0, 0, 0);
-    font-weight: 300;
-    color: rgb(255, 255, 255);
+#getrate:hover{
+    border-color: #ffc83d;
+    background-color: #000000;
+    transform: scale(.8) rotateZ(180deg);
 }
 #ln_selector{
     display: flex;
     flex-wrap: wrap;
+    width: 98%;
+    margin: 5px 1%;
+    text-align: center;
     justify-content: center;
-    font-size: 12px;
+    background-color: #0b860025;
+    font-family: 'Kalam', cursive;
+    font-size: 14px;
 }
 #discri{
     width: 95%;
@@ -216,10 +215,34 @@ body{
     cursor: pointer;
     text-transform: uppercase;
     text-align: center;
-    font-family: 'Kalam', cursive;
     background-color: #2285ff3b;
     color: rgb(255, 255, 255);
     margin: 2px;
+}
+#foot{
+    margin: 5px 1%;
+    width: 98%;
+    text-align: start;
+    font-size: 12px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+#about{
+    background-color: hsla(186, 100%, 69%, .1);
+    margin: 5px 0;
+}
+#about h4{
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #ffc83d;
+    font-weight: 100;
+}
+#about p{
+    text-align: justify;
+    font-family: 'Kalam', cursive;
 }
 .glob-links{
     display: inline-block;
@@ -228,21 +251,22 @@ body{
     padding: 1px;
     text-decoration: none;
     background-color: hsla(186, 100%, 69%, .1);
-    color: yellow;
+    color: #ffc83d;
 }
 .pro-links-div{
-    width: 90%;
-    margin: 10px 5%;
+    width: 100%;
+    margin: 5px 0;
     border-radius: 5px;
 }
 .pro-links{
     display: inline-block;
     min-width: 20%;
-    margin: 5px;
+    margin: 3px;
     padding: 3px;
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.75);
     color: rgb(0, 0, 0);
+    font-family: 'Poppins', sans-serif;
 }
 
 #toastBlock{
@@ -256,7 +280,7 @@ body{
     display: block;
     width: 100%;
     padding: 5px 0;
-    color: rgb(255, 200, 0);
+    color: #ffc83d;
     font-size: 12px;
     letter-spacing: 2px;
     font-weight: 100;

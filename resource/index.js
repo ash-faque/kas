@@ -44,7 +44,7 @@ function triggerFetch(){
     if (localStorage.lft){
         var lft = localStorage.lft;
         var ct = new Date().getTime();
-        const threshold = 1000*60*1;
+        const threshold = (1000*60) * 10; //minutes to wait
         if ((ct - lft) < threshold){
             //get rate from cache
             getRates(cache);

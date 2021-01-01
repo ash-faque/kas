@@ -26,18 +26,21 @@ body{
     text-transform: uppercase;
     z-index: 100;
 }
+.head-contain{
+    width: 100%;
+}
 .head-name{
     width: 80%;
 }
 #head h1{
     line-height: 30px;
-    padding-top: 5px;
+    padding: 3px 0 2px 0;
     margin-left: 10px;
     letter-spacing: 3.5px;
 }
 #head h2{
     line-height: 15px;
-    margin: 0 0 10px 10px;
+    margin: 2px 0 8px 10px;
     letter-spacing: 1.5px;
 }
 .icon{
@@ -60,9 +63,33 @@ body{
     color: #ffc83d;
     font-family: 'Kalam', cursive;
 }
-
+#search{
+    position: sticky;
+    top: 60px;
+    width: 100%;
+    height: 30px;
+    margin: 5px 0 0 0;
+    padding: 3px 0;
+    color: #ffffff;
+    background-color: #355d6e;
+    z-index: 100;
+}
+#search-result{
+    position: sticky;
+    top: 90px;
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    font-family: cursive;
+    color: #ffffff;
+    background-color: #355d6e;
+    z-index: 100;
+}
 #ratesTable{
     width: 99.5%;
+}
+.table-contain{
+    width: 100%;
 }
 .container{
     width: 100%;
@@ -169,7 +196,6 @@ body{
 
 #ad{
     width: 100%;
-    min-height: 100px;
     border: hsla(186, 100%, 69%, 1) 1px solid;
     border-radius: 5px;
     background-color: hsla(152, 100%, 50%, 0.5);
@@ -185,68 +211,61 @@ body{
     right: 30px;
     font-size: 25px;
     border-radius: 50%;
-    border: 2px #000000 solid;
+    border: 2px #ffc83d solid;
     background-color: #2ca3f2;
-    text-shadow: #ffc83d -1px -1px 1px, #ffc83d 1px -1px 1px, #ffc83d -1px 1px 1px, #ffc83d 1px 1px 1px;
+    text-shadow: #000000 -2px -2px 5px;
     z-index: 100;
-    transition: 300ms;
+    transition: 500ms;
 }
 #getrate:hover{
-    border-color: #ffc83d;
     background-color: #000000;
-    transform: scale(.8) rotateZ(180deg);
+    text-shadow: #ffc83d -2px -2px 5px, #ffc83d 2px -2px 5px, #ffc83d -2px 2px 5px, #ffc83d 2px 2px 5px;
 }
-#ln_selector{
-    display: flex;
-    flex-wrap: wrap;
-    width: 98%;
-    margin: 5px 1%;
-    text-align: center;
-    justify-content: center;
-    background-color: #0b860025;
-    font-family: 'Kalam', cursive;
-    font-size: 14px;
-}
-#discri{
-    width: 95%;
-}
-.lns{
-    width: 30%;
-    cursor: pointer;
-    text-transform: uppercase;
-    text-align: center;
-    background-color: #2285ff3b;
-    color: rgb(255, 255, 255);
-    margin: 2px;
-}
-#foot{
+.foot{
     margin: 5px 1%;
     width: 98%;
     text-align: start;
-    font-size: 12px;
     margin-bottom: 30px;
     font-weight: 300;
     background: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
-#about{
-    background-color: hsla(186, 100%, 69%, .1);
+#ln_selector{
+    width: 100%;
+    margin: 5px 0;
+    text-align: start;
+    justify-content: center;
+    font-family: 'Kalam', cursive;
+}
+#discri{
+    display: inline-block;
+}
+.lns{
+    display: inline-block;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #2285ff3b;
+    color: #ffc83d;
+    margin: 0 2px;
+    padding: 0 5px;
+}
+.about{
     margin: 5px 0;
 }
-#about h4{
+.about h4{
     text-transform: uppercase;
     font-family: 'Poppins', sans-serif;
-    text-align: center;
-    color: #ffc83d;
+    color: #cc9e29;
     font-weight: 100;
+    letter-spacing: 3px;
 }
-#about p{
+.about p{
+    width: 90%;
     text-align: justify;
     font-family: 'Kalam', cursive;
 }
 .glob-links{
     display: inline-block;
-    font-size: 12px;
     margin: 1px 2px;
     padding: 1px;
     text-decoration: none;
@@ -288,4 +307,24 @@ body{
     text-transform: uppercase;
     text-align: center;
     z-index: 99;
+}
+
+@media only screen and (min-width: 800px) {
+    .head-contain{
+        width: 90%;
+        margin: 0 5%;
+    }
+    .table-contain{
+        width: 70%;
+        margin: 0 30% 0 0;
+    }
+    #ad{
+        width: 30%;
+        position: absolute;
+        top: 185px;
+        right: 0;
+    }
+    .foot{
+        width: 70%;
+    }
 }

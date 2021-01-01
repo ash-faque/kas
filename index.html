@@ -16,45 +16,52 @@
 <body>
     <!-- NAV BAR -->
     <div id="head">
-        <div class="head-name">
-            <h1>KA Store!</h1>
-            <h2>Market Rates</h2>
-        </div>
-        <div class="icon">
-            <img src="/favicon.ico" alt="icon">
+        <div class="head-contain">
+            <div class="head-name">
+                <h1>KA Store!</h1>
+                <h2>Market Rates</h2>
+            </div>
+            <div class="icon">
+                <img src="/favicon.ico" alt="icon">
+            </div>
         </div>
     </div>
     <!-- LOOKOUTS -->
     <div id="look-me">
-        <marquee behavior="scoll" scrolldelay='100' direction="left">😷always wear mask in public places</marquee>
-        <marquee behavior="scoll" scrolldelay='150' direction="left">✨wash your hands frequently</marquee>
-        <marquee behavior="scoll" scrolldelay='200' direction="left">🙊❌avoid touching on your face</marquee>
+        <marquee scrolldelay='100'>😷always wear mask in public places</marquee>
+        <marquee scrolldelay='150'>✨wash your hands frequently</marquee>
+        <marquee scrolldelay='200'>🙊❌avoid touching on your face</marquee>
     </div>
+    <!-- SEARCH -->
+    <input type="text" id="search" onkeyup="search()" placeholder="Type here....">
+    <span id="search-result"></span>
     <!--  MARKET RATES ULS -->
     <div id="ratesTable">
-        <div class="container">
-            <h3>grains<span>🌰🌾</span></h3>
-            <ul class="collection" id="grains"></ul>
-        </div>
-        <div class="container">
-            <h3>vegetables<span>🍅🍆</span></h3>
-            <ul class="collection" id="vegetables"></ul>
-        </div>
-        <div class="container">
-            <h3>fruits<span>🍌🍎</span></h3>
-            <ul class="collection" id="fruits"></ul>
-        </div>
-        <div class="container">
-            <h3>meat & dairy<span>🐏🍖</span></h3>
-            <ul class="collection" id="dairy"></ul>
-        </div>
-        <div class="container">
-            <h3>oils<span>🛢🕊</span></h3>
-            <ul class="collection" id="oils"></ul>
-        </div>
-        <div class="container">
-            <h3>others<span>🚬🍨</span></h3>
-            <ul class="collection" id="others"></ul>
+        <div class="table-contain">
+            <div class="container">
+                <h3>grains<span>🌰🌾</span></h3>
+                <ul class="collection" id="grains"></ul>
+            </div>
+            <div class="container">
+                <h3>vegetables<span>🍅🍆</span></h3>
+                <ul class="collection" id="vegetables"></ul>
+            </div>
+            <div class="container">
+                <h3>fruits<span>🍌🍎</span></h3>
+                <ul class="collection" id="fruits"></ul>
+            </div>
+            <div class="container">
+                <h3>meat & dairy<span>🐏🍖</span></h3>
+                <ul class="collection" id="dairy"></ul>
+            </div>
+            <div class="container">
+                <h3>oils<span>🛢🕊</span></h3>
+                <ul class="collection" id="oils"></ul>
+            </div>
+            <div class="container">
+                <h3>others<span>🚬🍨</span></h3>
+                <ul class="collection" id="others"></ul>
+            </div>
         </div>
     </div>
     <!-- AD PANAL -->
@@ -64,21 +71,22 @@
     <div>
         <button onclick="triggerFetch();" id="getrate">⚡</button>
     </div>
-    <!-- TRILINGUAL SHIT -->
-    <div id="ln_selector">
-        <p id="discri">Please choose your language preference.</p>
-        <p class="lns" onclick="chooseLn('e')">english</p>
-        <p class="lns" onclick="chooseLn('m')">malayalam</p>
-        <p class="lns" onclick="chooseLn('h')">hindi</p>
-    </div>
     <!-- FOOT BAR -->
-    <div id="foot">
+    <div class="foot">
+        <!-- TRILINGUAL SHIT -->
+        <div id="ln_selector">
+            <p id="discri">Please choose your language preference.</p>
+            <p class="lns" onclick="chooseLn('e')">english</p>
+            <p class="lns" onclick="chooseLn('m')">malayalam</p>
+            <p class="lns" onclick="chooseLn('h')">hindi</p>
+        </div>
         <!-- ACTUAL FOOT CONTENT -->
-        <div id="about">
-            <h4>about ka store</h4>
+        <div class="about">
+            <h4>.::about ka store::.</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deserunt sit pariatur molestiae rerum necessitatibus inventore quas voluptas perferendis harum?</p>
         </div>
-        <p>Except where otherwise noted, contents on this site are licensed under a <a class="glob-links" target="blank" href="/">Creative Commons Attribution 4.0</a></p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/></a>
+        <br/>This work is licensed under a <a class="glob-links" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.</a>
         <p>Created By <a class="glob-links" target="blank" href="http://ashfaqueblathur.github.io/">Ashfaque Blathur</a></p>
         <p>Hosted at <a class="glob-links" target="blank" href="http://pages.github.com/">Github Pages</a> & <a class="glob-links" target="blank" href="https://firebase.google.com/">Firebase</a></p>
         <div class="pro-links-div">

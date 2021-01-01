@@ -110,8 +110,8 @@ const inputRates = (data) => {
     const li = document.createElement("LI");
     li.setAttribute("id", `${doc.id}`);
     li.innerHTML = `<p class="detail">
-                            <a class="info" href="${item.link}">${item.icon}</a>
-                            <span class="name">${nameThrow()}</span>
+                        <span class="info" onclick="showInfo();">${item.icon}</span>
+                        <span class="name searchable">${nameThrow()}</span>
                     </p>
                     <p class="tag">
                         <span class="rate">${item.rate}</span>
@@ -135,4 +135,29 @@ const inputRates = (data) => {
         others.appendChild(li);
     };
 });
+};
+
+const resultBox = document.getElementById('search-result');
+let input = document.getElementById('search');
+
+function search(){
+    let searchKey = input.value.toUpperCase();
+    let searchables = Array.from((document.getElementsByClassName('searchable')));
+    if (input.value.length > 0){
+        for (i = 0; i < searchables.length; i++) {
+        let searchInst = searchables[i].innerText.toUpperCase();
+            if (searchInst.indexOf(searchKey) > -1) {
+                resultBox.innerText = `Found a match for the search of "${input.value}" as "${searchables[i].innerText}" :)`;
+                searchables[i].parentElement.parentElement.scrollIntoView(false);
+            } else {
+                resultBox.innerText = `Search for "${input.value}" faild with no results :(`;
+            };
+        };
+    } else {
+        resultBox.innerText = 'Search for items in the current language..';
+    };
+};
+
+if (!input.length){
+    resultBox.innerText = 'Search for items in the current language..';
 };

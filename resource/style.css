@@ -1,5 +1,4 @@
 /*  
-font-family: 'Kalam', cursive;
 font-family: 'Poppins', sans-serif;
 */
 
@@ -61,7 +60,7 @@ body{
     font-size: 14px;
     margin: 1px 0;
     color: #ffc83d;
-    font-family: 'Kalam', cursive;
+    font-family: cursive;
 }
 #search{
     position: sticky;
@@ -69,31 +68,24 @@ body{
     width: 100%;
     height: 30px;
     margin: 5px 0 0 0;
-    padding: 3px 0;
+    padding: 2px 5px;
     color: #ffffff;
-    background-color: #355d6e;
-    z-index: 100;
-}
-#search-result{
-    position: sticky;
-    top: 90px;
-    display: inline-block;
-    width: 100%;
-    font-size: 12px;
-    font-family: cursive;
-    color: #ffffff;
+    border: 1px solid rgb(33, 33, 110);
     background-color: #355d6e;
     z-index: 100;
 }
 #ratesTable{
     width: 99.5%;
+    min-height: 80vh;
 }
 .table-contain{
     width: 100%;
 }
+.table-contain:empty{
+    content: 'oh ooh! no match!';
+}
 .container{
     width: 100%;
-    min-height: 240px;
     background-color: rgba(0, 0, 0, 0.4);
     border: hsla(152, 100%, 60%) 1px solid;
     border-bottom-width: 0;
@@ -119,15 +111,39 @@ body{
 .container ul{
     text-align: center;
 }
+.container ul:empty{
+    content: ':(';
+    height: 30px;
+    text-transform: uppercase;
+    color: #000000;
+    background-color: #a38c53;
+    text-align: center;
+}
 .container ul li{
     list-style: none;
     width: 100%;
     height: 40px;
-    margin: 2px 0;
+    margin: 1px 0;
     text-transform: uppercase;
 }
-
-
+.container ul li::after{
+    content: "";
+    display: block;
+    width: calc(100% - 5px);
+    height: 1px;
+    background: rgb(0, 165, 41);
+    margin: 3px 0 0 2.5px;
+}
+.container ul li:last-child::after{
+    display: none;
+}
+.info{
+    cursor: pointer;
+    margin: 0 0 0 5px;
+    padding: 5px 5px 0 0;
+    font-size: 15px;
+    text-shadow: #ffffff -1px 1px;
+}
 .detail{
     width: 70%;
     height: 30px;
@@ -150,14 +166,6 @@ body{
     font-size: 10px;
     color: rgb(150, 240, 0);
 }
-
-.info{
-    cursor: pointer;
-    margin: 0 0 0 5px;
-    padding: 5px 5px 0 0;
-    font-size: 15px;
-    text-shadow: #ffffff -1px 1px;
-}
 .name{
     text-shadow: #000000 -1px 1px;
 }
@@ -173,6 +181,7 @@ body{
 
 .stock{
     float: left;
+    height: 10px;
     margin-left: 5px;
 }
 .inStock{
@@ -183,17 +192,9 @@ body{
 }
 .eta{
     float: right;
+    height: 10px;
     margin-right: 5px;
 }
-.container ul li::after{
-    content: "";
-    display: block;
-    width: calc(100% - 5px);
-    height: 1px;
-    background: rgb(255, 255, 255);
-    margin: 3px 0 0 2.5px;
-}
-
 #ad{
     width: 100%;
     border: hsla(186, 100%, 69%, 1) 1px solid;
@@ -207,19 +208,15 @@ body{
     width: 60px;
     height: 60px;
     position: fixed;
-    bottom: 40px;
+    top: 40%;
     right: 30px;
     font-size: 25px;
     border-radius: 50%;
-    border: 2px #ffc83d solid;
-    background-color: #2ca3f2;
-    text-shadow: #000000 -2px -2px 5px;
+    border-width: 0;
+    background-color: #474747;
+    text-shadow: #ffffff -2px 1px 5px;
+    box-shadow: #ffffff -1px 1px 5px, #ffffff 1px 1px 5px;
     z-index: 100;
-    transition: 500ms;
-}
-#getrate:hover{
-    background-color: #000000;
-    text-shadow: #ffc83d -2px -2px 5px, #ffc83d 2px -2px 5px, #ffc83d -2px 2px 5px, #ffc83d 2px 2px 5px;
 }
 .foot{
     margin: 5px 1%;
@@ -235,7 +232,6 @@ body{
     margin: 5px 0;
     text-align: start;
     justify-content: center;
-    font-family: 'Kalam', cursive;
 }
 #discri{
     display: inline-block;
@@ -262,7 +258,6 @@ body{
 .about p{
     width: 90%;
     text-align: justify;
-    font-family: 'Kalam', cursive;
 }
 .glob-links{
     display: inline-block;
@@ -303,7 +298,6 @@ body{
     font-size: 12px;
     letter-spacing: 2px;
     font-weight: 100;
-    font-family: 'Kalam', cursive;
     text-transform: uppercase;
     text-align: center;
     z-index: 99;
@@ -326,5 +320,25 @@ body{
     }
     .foot{
         width: 70%;
+    }
+    #getrate{
+        cursor: pointer;
+        display: block;
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        bottom: 40px;
+        right: 30px;
+        font-size: 25px;
+        border-radius: 50%;
+        border: 2px #ffc83d solid;
+        background-color: #2ca3f2;
+        text-shadow: #000000 -2px -2px 5px;
+        z-index: 100;
+        transition: 500ms;
+    }
+    #getrate:hover{
+        background-color: #000000;
+        text-shadow: #ffc83d -2px -2px 5px, #ffc83d 2px -2px 5px, #ffc83d -2px 2px 5px, #ffc83d 2px 2px 5px;
     }
 }

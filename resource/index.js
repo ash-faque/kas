@@ -137,27 +137,23 @@ const inputRates = (data) => {
 });
 };
 
-const resultBox = document.getElementById('search-result');
 let input = document.getElementById('search');
-
 function search(){
     let searchKey = input.value.toUpperCase();
     let searchables = Array.from((document.getElementsByClassName('searchable')));
+    const contains = Array.from(document.querySelectorAll('.container'));
     if (input.value.length > 0){
+        contains.forEach(contain => contain.firstElementChild.style.display = 'none');
         for (i = 0; i < searchables.length; i++) {
-        let searchInst = searchables[i].innerText.toUpperCase();
+        let searchInst = searchables[i].textContent.toUpperCase();
             if (searchInst.indexOf(searchKey) > -1) {
-                resultBox.innerText = `Found a match for the search of "${input.value}" as "${searchables[i].innerText}" :)`;
-                searchables[i].parentElement.parentElement.scrollIntoView(false);
+                searchables[i].parentElement.parentElement.style.display = 'block';
             } else {
-                resultBox.innerText = `Search for "${input.value}" faild with no results :(`;
+                searchables[i].parentElement.parentElement.style.display = 'none';
             };
         };
     } else {
-        resultBox.innerText = 'Search for items in the current language..';
+        contains.forEach(contain => contain.firstElementChild.style.display = 'block');
+        searchables.forEach(searchable => searchable.parentElement.parentElement.style.display = 'block');
     };
-};
-
-if (!input.length){
-    resultBox.innerText = 'Search for items in the current language..';
 };

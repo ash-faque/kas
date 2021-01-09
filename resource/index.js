@@ -3,7 +3,7 @@ function toast(message){
     let toastBlock = document.getElementById('toastBlock');
     let msg = `<span>${message}</span>`;
     toastBlock.innerHTML = msg;
-    setTimeout(function(){ toastBlock.innerHTML = ''; },3000);
+    setTimeout(function(){ toastBlock.innerHTML = ''; }, 1500);
 };
 
 // GET REFERENCE TO COMMODITIES AND GETRATE
@@ -44,7 +44,7 @@ function triggerFetch(){
     if (localStorage.lft){
         var lft = localStorage.lft;
         var ct = new Date().getTime();
-        const threshold = (1000*60) * 10; //minutes to wait
+        const threshold = (1000*60) * 1; //minutes to wait
         if ((ct - lft) < threshold){
             //get rate from cache
             getRates(cache);
@@ -57,6 +57,7 @@ function triggerFetch(){
         getRates(server);
     };
 };
+
 function toastSource(querySnapshot){
     if (querySnapshot.metadata.fromCache) {
         toast('got commodity lists from cache');
@@ -85,10 +86,14 @@ const inputRates = (data) => {
     function nameThrow(){
         if (localStorage.ln == "e"){
             return item.e_name;
-        } else if (localStorage.ln == "m"){
+        } else if ((localStorage.ln == "m") && item.m_name != ""){
             return item.m_name;
-        } else if (localStorage.ln == "h"){
+        } else if ((localStorage.ln == "h") && item.h_name != ""){
             return item.h_name;
+        } else if (item.m_name == ""){
+            return item.e_name;
+        } else if (item.h_name == ""){
+            return item.e_name;
         };
     };
     function etaShower(eta){
@@ -110,7 +115,7 @@ const inputRates = (data) => {
     const li = document.createElement("LI");
     li.setAttribute("id", `${doc.id}`);
     li.innerHTML = `<p class="detail">
-                        <span class="info" onclick="showInfo();">${item.icon}</span>
+                        <span class="info" onclick="showInfo();">${item.icon != '' ? item.icon: '✨'}</span>
                         <span class="name searchable">${nameThrow()}</span>
                     </p>
                     <p class="tag">
@@ -120,7 +125,7 @@ const inputRates = (data) => {
                     <p class="status">
                         ${availablityShower()}
                         <span class="eta">updated${" : " + etaShower(eta)}</span>
-                    </p>`;
+                    </p><hr>`;
     if (item.catogary == "grain"){
         grains.appendChild(li);
     } else if (item.catogary == "vegetable"){
@@ -137,8 +142,12 @@ const inputRates = (data) => {
 });
 };
 
+setInterval(triggerFetch, 1000*60);
+
+
 let input = document.getElementById('search');
 function search(){
+    window.scrollTo(0,90);
     let searchKey = input.value.toUpperCase();
     let searchables = Array.from((document.getElementsByClassName('searchable')));
     const contains = Array.from(document.querySelectorAll('.container'));

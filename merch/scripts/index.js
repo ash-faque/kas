@@ -43,15 +43,23 @@ const inputRates = (data) => {
         const li = document.createElement("LI");
         li.setAttribute("data-id", `${doc.id}`);               
         li.innerHTML = `<form class="rate-show">
-                            <button class="delete" id="${doc.id}" type="button" onclick="deleteItem(this);">✖</button>
                             <div class="detail">
                                 <label for="rate">${item.e_name}</label>
-                                <input type="number" name="rate" value="${item.rate}" required>
+                                <input class="input-rate" type="number" name="rate" value="${item.rate}" required>
                                 <span>${quantityShower()}</span>
                                 ${availablityShower()}
+                                <button class="expander" type="button" onclick="expandMore(this)">❇</button>
+                                <div class="more-detail">
+                                    <input type="text" name="e_name" class="name" placeholder="${item.e_name}" required>
+                                    <input type="text" name="m_name" class="name" placeholder="${item.m_name}" required>
+                                    <input type="text" name="h_name" class="name" placeholder="${item.h_name}" required>
+                                    <input type="text" name="info" placeholder="${item.icon}">
+                                    <input type="text" name="link" placeholder="${item.link}">
+                                </div>
                             </div>
+                            <button class="delete" id="${doc.id}" type="button" onclick="deleteItem(this);">✖</button>
                             <button class="update" type="button" onclick="updateItem(this);">✔</button>
-                        </form>`;
+                        </form>`;     
         if (item.catogary == "grain"){
             grains.appendChild(li);
         } else if (item.catogary == "vegetable"){
@@ -127,12 +135,34 @@ addForm.addEventListener('submit', (e) => {
   });
 });
 
+// EXPAND MORE
+function expandMore(roma){
+    let clicked = roma;
+    if (clicked.nextElementSibling.style.display == 'none'){
+        clicked.nextElementSibling.style.display = 'block';
+    } else {
+        clicked.nextElementSibling.style.display = 'none';
+    };
+};
+
 // UPDATE RATE
 function updateItem(seema){
    let docId = seema.parentElement.parentElement.getAttribute("data-id");
+    function validKey(key){
+        if (key.value == ""){
+                return key.placeholder;
+        } else {
+                return key.value;
+        };
+    };
     commodity.doc(docId).update({
-        rate : seema.parentElement[1].value,
-        availablity : checkedWhat(seema.parentElement[2]),
+        rate : seema.parentElement[0].value,
+        availablity : checkedWhat(seema.parentElement[1]),
+        e_name: validKey(seema.parentElement[3]),
+        m_name: validKey(seema.parentElement[4]),
+        h_name: validKey(seema.parentElement[5]),
+        icon: validKey(seema.parentElement[6]),
+        link: validKey(seema.parentElement[7]),
         on : firebase.firestore.Timestamp.now()
     }).then(function() {
         toast('item successfully updated')
@@ -148,8 +178,8 @@ function updateItem(seema){
         }
         let form = seema.parentElement
         console.log(form);
-        form[1].innerHTML = `${item.rate}`;
-        form[2].setAttribute('checked', availablityUpdater());
+        form[0].innerHTML = `${item.rate}`;
+        form[1].setAttribute('checked', availablityUpdater());
         }, err => console.log(err.message));
     }).catch(function(error) {
         console.error("Error updating document: ", error);

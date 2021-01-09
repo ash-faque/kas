@@ -49,7 +49,7 @@ const inputRates = (data) => {
                                 <span>${quantityShower()}</span>
                                 ${availablityShower()}
                                 <button class="expander" type="button" onclick="expandMore(this)">❇</button>
-                                <div class="more-detail">
+                                <div class="more-detail" style="display: none; transition: 500ms;">
                                     <input type="text" name="e_name" class="name" placeholder="${item.e_name}" required>
                                     <input type="text" name="m_name" class="name" placeholder="${item.m_name}" required>
                                     <input type="text" name="h_name" class="name" placeholder="${item.h_name}" required>

@@ -123,10 +123,6 @@ div ul li{
     margin-left: 5%;
     background-color: rgb(59, 140, 253);
 }
-.more-detail{
-    display: none;
-    transition: 500ms;
-}
 .more-detail input{
     width: 85%;
     height: 25px;

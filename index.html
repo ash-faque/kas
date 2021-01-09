@@ -39,7 +39,29 @@
         <div class="table-contain">
             <div class="container">
                 <h3>grains<span>🌰🌾</span></h3>
-                <ul class="collection" id="grains"></ul>
+                <ul class="collection" id="grains">
+                    <li>
+                        <p class="detail">
+                            <span class="info" onclick="showInfo(this);">✨</span>
+                            <span class="name searchable">thakkaly</span>
+                        </p>
+                        <div class="more-info" style="display: none; transition: 500ms;">
+                            <img src="favicon.ico" alt="image of ${item.e_name}">
+                            <p>thakkaly</p>
+                            <p>tomato</p>
+                            <p>tamaatr</p>
+                            <p onclick="closeCard()">✖</p>
+                        </div>
+                        <p class="tag">
+                            <span class="rate">30</span>
+                            <span class="per"> / kg</span>
+                        </p>
+                        <p class="status">
+                            <span class="stock inStock">available</span>
+                            <span class="eta">updated today</span>
+                        </p><hr>
+                    </li>
+                </ul>
             </div>
             <div class="container">
                 <h3>vegetables<span>🍅🍆</span></h3>

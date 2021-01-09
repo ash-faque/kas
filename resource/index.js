@@ -115,9 +115,16 @@ const inputRates = (data) => {
     const li = document.createElement("LI");
     li.setAttribute("id", `${doc.id}`);
     li.innerHTML = `<p class="detail">
-                        <span class="info" onclick="showInfo();">${item.icon != '' ? item.icon: '✨'}</span>
+                        <span class="info" onclick="showInfo(this);">${item.icon != '' ? item.icon: '✨'}</span>
                         <span class="name searchable">${nameThrow()}</span>
                     </p>
+                    <div class="more-info" style="display: none; transition: 500ms;">
+                            <img src="${item.link}" alt="image of ${item.e_name}">
+                            <p>${item.e_name}</p>
+                            <p>${item.m_name}</p>
+                            <p>${item.h_name}</p>
+                            <p onclick="closeCard(this)">✖</p>
+                        </div>
                     <p class="tag">
                         <span class="rate">${item.rate}</span>
                         <span class="per">${item.per}</span>
@@ -144,7 +151,6 @@ const inputRates = (data) => {
 
 setInterval(triggerFetch, 1000*60);
 
-
 let input = document.getElementById('search');
 function search(){
     window.scrollTo(0,90);
@@ -165,4 +171,13 @@ function search(){
         contains.forEach(contain => contain.firstElementChild.style.display = 'block');
         searchables.forEach(searchable => searchable.parentElement.parentElement.style.display = 'block');
     };
+};
+
+function showInfo(marry){
+    let clicked = marry
+    clicked.parentElement.nextElementSibling.style.display = 'block';
+};
+function closeCard(lisa){
+    let clicked = lisa
+    clicked.parentElement.style.display = 'none';
 };

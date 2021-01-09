@@ -119,12 +119,12 @@ const inputRates = (data) => {
                         <span class="name searchable">${nameThrow()}</span>
                     </p>
                     <div class="more-info" style="display: none; transition: 500ms;">
-                            <img src="${item.link}" alt="image of ${item.e_name}">
-                            <p>${item.e_name}</p>
-                            <p>${item.m_name}</p>
-                            <p>${item.h_name}</p>
-                            <p onclick="closeCard(this)">✖</p>
-                        </div>
+                        <img src="${item.link}" alt="image of ${item.e_name}">
+                        <p>${item.e_name}</p>
+                        <p>${item.m_name}</p>
+                        <p>${item.h_name}</p>
+                        <p onclick="closeCard(this)">✖</p>
+                    </div>
                     <p class="tag">
                         <span class="rate">${item.rate}</span>
                         <span class="per">${item.per}</span>

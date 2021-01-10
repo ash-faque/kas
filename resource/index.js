@@ -38,13 +38,16 @@ function getRates(from){
     commodity.get(from).then(querySnapshot => {
         toastSource(querySnapshot);
         inputRates(querySnapshot.docs);
-    }, err => console.log(err.message));
+    }).catch(err => {
+        console.log(err.message);
+        toast(err);
+    });
 };
 function triggerFetch(){
     if (localStorage.lft){
         var lft = localStorage.lft;
         var ct = new Date().getTime();
-        const threshold = (1000*60) * 1; //minutes to wait
+        const threshold = (1000*60*20); //minutes to wait
         if ((ct - lft) < threshold){
             //get rate from cache
             getRates(cache);
@@ -118,8 +121,9 @@ const inputRates = (data) => {
                         <span class="info" onclick="showInfo(this);">${item.icon != '' ? item.icon: '✨'}</span>
                         <span class="name searchable">${nameThrow()}</span>
                     </p>
-                    <div class="more-info" style="display: none; transition: 500ms;">
+                    <div class="more-info" style="display: none;">
                         <img src="${item.link}" alt="image of ${item.e_name}">
+                        <h4>${item.rate}<span> ${item.per}</span></h4>
                         <p>${item.e_name}</p>
                         <p>${item.m_name}</p>
                         <p>${item.h_name}</p>
@@ -149,7 +153,7 @@ const inputRates = (data) => {
 });
 };
 
-setInterval(triggerFetch, 1000*60);
+setInterval(triggerFetch, 1000*60*5);
 
 let input = document.getElementById('search');
 function search(){

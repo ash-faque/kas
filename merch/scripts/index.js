@@ -167,7 +167,6 @@ function updateItem(seema){
     }).then(function() {
         toast('item successfully updated')
         commodity.doc(docId).get().then(doc => {
-        console.log('got updated document');
         const item = doc.data();
         function availablityUpdater(){
             if (item.availablity == true){
@@ -177,9 +176,14 @@ function updateItem(seema){
             }
         }
         let form = seema.parentElement
-        console.log(form);
-        form[0].innerHTML = `${item.rate}`;
+        form.reset();
+        form[0].value = `${item.rate}`;
         form[1].setAttribute('checked', availablityUpdater());
+        form[3].placeholder = `${item.e_name}`;
+        form[4].placeholder = `${item.m_name}`;
+        form[5].placeholder = `${item.h_name}`;
+        form[6].placeholder = `${item.icon}`;
+        form[7].placeholder = `${item.link}`;
         }, err => console.log(err.message));
     }).catch(function(error) {
         console.error("Error updating document: ", error);

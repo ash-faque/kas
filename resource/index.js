@@ -10,11 +10,6 @@ function toast(message){
 var commodity = db.collection("commodities");
 const server = { source: 'default' };
 const cache = { source: 'cache' };
-if (localStorage.lft){
-    window.onload = getRates(cache);
-} else {
-    window.onload = getRates(server);
-};
 
 function chooseLn(ln){
     localStorage.ln = ln;
@@ -47,7 +42,7 @@ function triggerFetch(){
     if (localStorage.lft){
         var lft = localStorage.lft;
         var ct = new Date().getTime();
-        const threshold = (1000*60*20); //minutes to wait
+        const threshold = (1000*60*15); //minutes to wait
         if ((ct - lft) < threshold){
             //get rate from cache
             getRates(cache);
@@ -60,6 +55,7 @@ function triggerFetch(){
         getRates(server);
     };
 };
+window.onload = triggerFetch();
 
 function toastSource(querySnapshot){
     if (querySnapshot.metadata.fromCache) {

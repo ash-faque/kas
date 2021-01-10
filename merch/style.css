@@ -71,16 +71,17 @@ div ul li{
     min-height: 30px;
     padding: 10px 0 0 0;
     font-size: 15px;
-    background-color: rgb(100, 100, 100);
+    background-color: #1e4a55;
     text-transform: uppercase;
 }
 #msgBlock p{
-    line-height: 15px;
+    font-size: 20px;
+    font-weight: 900;
     animation: toastHide 3s;
     animation-fill-mode: forwards
 }
 #ratesTable{
-    background-color: rgba(128, 255, 0, 0.5);
+    background-color: rgb(83, 126, 41);
     margin: 0;
 }
 #ratesTable h3{
@@ -95,7 +96,7 @@ div ul li{
 .rate-show{
     width: 100%;
     min-height: 70px;
-    background-color: teal;
+    background-color: rgb(51, 51, 51);
     margin: 5px 0;
 }
 .rate-show .detail{
@@ -146,7 +147,7 @@ div ul li{
     width: 100%;
 }
 #add-form{
-    background-color: rgba(0, 255, 200, 0.5);
+    background-color: rgb(70, 70, 70);
     width: 100%;
     margin-top: 5px;
     padding: 5px 0;
@@ -194,10 +195,10 @@ div ul li{
     padding: 5px 0;
 }
 .catogary div{
-    background-color: rgba(255, 150, 0, 0.5);
+    background-color: rgba(112, 80, 35, 0.5);
 }
 .per div{
-    background-color: rgba(0, 255, 0, 0.5);
+    background-color: rgba(33, 97, 33, 0.5);
 }
 .avl div{
     cursor: pointer;
@@ -205,27 +206,18 @@ div ul li{
     font-size: 15px;
     letter-spacing: 3px;
 }
-#logout, #add-form button{
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    background-color: teal;
-    padding: 1px;
-    text-shadow: rgb(0, 0, 0) -1px 1px;
-}
 #add-form button{
+    cursor: pointer;
+    padding: 1px;
     display: block;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 900;
     letter-spacing: 3px;
-    width: 60%;
-    height: 30px;
-    margin: 10px 20%;
+    width: 90%;
+    height: 40px;
+    margin: 10px 5%;
     color: rgb(0, 0, 0);
-    border: 1px rgb(0, 0, 0) solid;
-    border-radius: 5px;
-    background-color: rgba(0, 255, 255, 0.8);
-    text-shadow: rgb(255, 200, 0) -1px 1px;
-    box-shadow: rgb(255, 200, 0) -1px 1px 1px, rgb(255, 255, 255) 1px -1px 1px;
+    border: 3px rgb(0, 0, 0) solid;
     cursor: pointer;
     text-transform: uppercase;
     z-index: 100;
@@ -234,34 +226,29 @@ div ul li{
     cursor: pointer;
     border: rgb(14, 0, 138) 2px solid;
     display: block;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    height: 50px;
     font-size: 20px;
     z-index: 100;
 }
 #logout{
-    margin: 35vh 0 20px 20px;
+    width: 100%;
+    margin: 35vh 0 0 0;
     background-color: rgba(255, 55, 55, 0.7);
 }
 #getrate{
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    width: 60px;
+    top: 20vh;
+    right: 0;
     background-color: rgb(255, 255, 255);
 }
 @keyframes toastHide{
     0%{
         opacity: 1;
-        color: rgb(255, 255, 0);
-    }
-    60%{
-        opacity: 1;
-        color: rgb(0, 255, 0);
+        color: #ff5e00;
     }
     100%{
         display: none;
         opacity: 0;
-        color: rgb(255, 0, 0);
     }
 }

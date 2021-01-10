@@ -9,7 +9,7 @@ function toast(message){
 var commodity = db.collection("commodities");
 function getRates(commodity){
     commodity.get().then(querySnapshot => {
-        toast('got commodities')
+        toast('got commodity list')
         inputRates(querySnapshot.docs);
     }, err => console.log(err.message));    
 };
@@ -26,13 +26,6 @@ const inputRates = (data) => {
     rateUls.forEach(ul => ul.innerHTML = '');
     data.forEach(doc => {
         const item = doc.data();
-        function quantityShower(){
-            if (item.perkilo == true){
-                return " ₹/kg";
-            } else {
-                return " ₹/ltr";
-            }
-        }
         function availablityShower(){
             if (item.availablity == true){
                 return '<input class="checkbox-avl" type="checkbox" name="avl" checked>';
@@ -46,7 +39,7 @@ const inputRates = (data) => {
                             <div class="detail">
                                 <label for="rate">${item.e_name}</label>
                                 <input class="input-rate" type="number" name="rate" value="${item.rate}">
-                                <span>${quantityShower()}</span>
+                                <span>${item.per}</span>
                                 ${availablityShower()}
                                 <button class="expander" type="button" onclick="expandMore(this)">❇</button>
                                 <div class="more-detail" style="display: none; transition: 500ms;">
@@ -102,8 +95,8 @@ function qtySelected(){
         return qtys[0].value;
     } else if (qtys[1].checked){
         return qtys[1].value;
-    } else if (qtys[3].checked){
-        return qtys[3].value;
+    } else if (qtys[2].checked){
+        return qtys[2].value;
     };
 };
 const avl = document.getElementById('availablity');

@@ -33,7 +33,10 @@
         <marquee scrolldelay='200'>🙊❌avoid touching on your face</marquee>
     </div>
     <!-- SEARCH -->
-    <input type="text" id="search" onkeyup="search()" placeholder="Type to search....">
+    <div class="search">
+        <input type="text" id="search" onkeyup="search()" placeholder="Type to search....">
+        <p class="clear-search" onclick="clearSearchBox()" style="display: none;">❌</p>
+    </div>
     <!--  MARKET RATES ULS -->
     <div id="ratesTable">
         <div class="table-contain">

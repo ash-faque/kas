@@ -42,7 +42,7 @@ function triggerFetch(){
     if (localStorage.lft){
         var lft = localStorage.lft;
         var ct = new Date().getTime();
-        const threshold = (1000*60*15); //minutes to wait
+        const threshold = (1000*60*30); //minutes to wait
         if ((ct - lft) < threshold){
             //get rate from cache
             getRates(cache);
@@ -55,7 +55,9 @@ function triggerFetch(){
         getRates(server);
     };
 };
+
 window.onload = triggerFetch();
+setInterval(triggerFetch, 1000*60*2);
 
 function toastSource(querySnapshot){
     if (querySnapshot.metadata.fromCache) {
@@ -149,15 +151,15 @@ const inputRates = (data) => {
 });
 };
 
-setInterval(triggerFetch, 1000*60*5);
-
+// SEARCH SHITS
 let input = document.getElementById('search');
+const contains = Array.from(document.querySelectorAll('.container'));
 function search(){
     window.scrollTo(0,90);
     let searchKey = input.value.toUpperCase();
     let searchables = Array.from((document.getElementsByClassName('searchable')));
-    const contains = Array.from(document.querySelectorAll('.container'));
     if (input.value.length > 0){
+        input.nextElementSibling.style.display = 'block';
         contains.forEach(contain => contain.firstElementChild.style.display = 'none');
         for (i = 0; i < searchables.length; i++) {
         let searchInst = searchables[i].textContent.toUpperCase();
@@ -168,11 +170,15 @@ function search(){
             };
         };
     } else {
+        input.nextElementSibling.style.display = 'none';
         contains.forEach(contain => contain.firstElementChild.style.display = 'block');
         searchables.forEach(searchable => searchable.parentElement.parentElement.style.display = 'block');
     };
 };
-
+function clearSearchBox(){
+    input.value = '';
+    search();
+};
 function showInfo(marry){
     let clicked = marry
     clicked.parentElement.nextElementSibling.style.display = 'block';

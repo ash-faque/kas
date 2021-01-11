@@ -238,7 +238,7 @@ div ul li{
 #getrate{
     position: fixed;
     width: 60px;
-    top: 20vh;
+    top: 10vh;
     right: 0;
     background-color: rgb(255, 255, 255);
 }
